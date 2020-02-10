@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './Component/user/user.component';
 import { LoginComponent } from './Component/login/login.component';
+import { MenuComponent } from './menu/menu.component';
 import { ProjectComponent } from './Component/project/project.component';
 import { ServiceModule } from "../Service/service.module";
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     UserComponent,
+    MenuComponent
     ProjectComponent
+    master
   ],
   imports: [
     BrowserModule,
