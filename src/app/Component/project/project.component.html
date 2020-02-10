@@ -1,0 +1,20 @@
+<div class="FormProject">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <label>Titre du projet</label>
+    <input id="title" type="text" formControlName="title">
+
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="5" cols="50" formControlName="description"></textarea>
+
+    <label for="persons">Personnes</label>
+    <textarea id="persons" name="persons" rows="5" cols="50" formControlName="persons"></textarea>
+
+    <label for="type">Type du projet :</label>
+    <select name="Type" id="type" formControlName="type">
+      <option value="type" *ngFor="let typeInfo of type">{{typeInfo['title']}}</option>
+    </select>
+
+    <button class="button" type="submit">Créer projet</button>
+
+  </form>
+</div>

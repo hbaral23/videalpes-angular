@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './Component/user/user.component';
 import { LoginComponent } from './Component/login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { ProjectComponent } from './Component/project/project.component';
+import { ServiceModule } from "../Service/service.module";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { MenuComponent } from './menu/menu.component';
     LoginComponent,
     UserComponent,
     MenuComponent
+    ProjectComponent
+    master
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialDesignModule,
     PrimeNgModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
