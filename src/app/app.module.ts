@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './Component/user/user.component';
 import { LoginComponent } from './Component/login/login.component';
+import { AwardsComponent } from './Component/awards/awards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    AwardsComponent
   ],
   imports: [
     BrowserModule,
