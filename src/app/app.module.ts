@@ -18,9 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     UserComponent,
-    MenuComponent
+    MenuComponent,
     ProjectComponent
-    master
   ],
   imports: [
     BrowserModule,
