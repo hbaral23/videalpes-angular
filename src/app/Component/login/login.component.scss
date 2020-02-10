@@ -1,0 +1,20 @@
+::ng-deep body {  
+    background-image:
+    radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+::ng-deep p {
+    color: white !important;
+}
+
+.Logomultimedialpes {
+    position: relative;
+    scale: 0.25;
+}
