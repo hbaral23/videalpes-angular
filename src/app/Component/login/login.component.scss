@@ -15,6 +15,57 @@
 }
 
 .Logomultimedialpes {
-    position: relative;
-    scale: 0.25;
+    display: block;
+    width: 40%;
+    max-width: 30%;
+    height: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+::ng-deep .tablelog {
+    margin-top: 20% !important;
+}
+
+.ui-g div {
+    text-align: center;
+}
+
+
+.plnputlogin {
+padding-left: 4%;
+}
+.loginform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputfield {    
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:focus {
+    //outline:0 !important;
+}
+
+.btnaddon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+.mat-icon {
+    font-size: 20px;
+  }
