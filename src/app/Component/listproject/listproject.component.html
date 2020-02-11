@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
     <h2>Liste des projets</h2>
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" (click)="openModal()">
       <i class="material-icons">
         post_add
       </i>
@@ -11,11 +11,12 @@
   <table class="table">
     <thead>
     <tr>
-      <th class="id">id</th>
+      <th class="id" >id</th>
       <th class="title">title</th>
       <th class="description">description</th>
       <th class="persons">personnes</th>
       <th class="type">type</th>
+      <th class="action">actions</th>
     </tr>
     </thead>
     <tbody>
@@ -24,7 +25,7 @@
       <td>{{info['title']}}</td>
       <td>{{info['description']}}</td>
       <td>{{info['persons']}}</td>
-      <td>{{info['type']}}</td>
+      <td>{{info['type'].title}}</td>
       <td>
         <button mat-mini-fab class="editBtn">
           <i class="material-icons">
@@ -39,28 +40,7 @@
     </tr>
     </tbody>
   </table>
-
-  <div class="FormProject">
-    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-      <label>Titre du projet</label>
-      <input id="title" type="text" formControlName="title">
-
-      <label for="description">Description</label>
-      <textarea id="description" name="description" rows="5" cols="50" formControlName="description"></textarea>
-
-      <label for="persons">Personnes</label>
-      <textarea id="persons" name="persons" rows="5" cols="50" formControlName="persons"></textarea>
-
-      <!--    <label for="type">Type du projet :</label>-->
-      <!--    <select name="Type" id="type" formControlName="type">-->
-      <!--      <option value="type" *ngFor="let typeInfo of type">{{typeInfo['title']}}</option>-->
-      <!--    </select>-->
-
-      <button class="button" type="submit">Créer projet</button>
-
-    </form>
   </div>
-</div>
 
 
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ProjetService} from "../../../Service/projet.service";
 import {TypeService} from "../../../Service/type.service";
+import {AddAwardModalComponent} from "../add-award-modal/add-award-modal.component";
+import {MatDialog} from "@angular/material/dialog";
+import {AddProjectModalComponent} from "../../add-project-modal/add-project-modal.component";
 
 @Component({
   selector: 'app-listproject',
@@ -10,34 +13,23 @@ import {TypeService} from "../../../Service/type.service";
 })
 export class ListprojectComponent implements OnInit {
 
-  projectForm = new FormGroup({
-    title : new FormControl(''),
-    description: new FormControl(''),
-    persons: new FormControl(''),
-    // type: new FormControl('')
-  });
-
   type: [] = [];
   project : [] = [];
 
-  constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService) { }
+  constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService,private dialog: MatDialog) { }
 
   ngOnInit() {
-    // this.typeService.get().subscribe(data => {
-    //     this.type = data['hydra:member'];
-    //     console.log(this.type);
-    // });
+    this.typeService.get().subscribe(data => {
+        this.type = data['hydra:member'];
+    });
     this.projectService.get().subscribe(data => {
       console.log(data['hydra:member']);
       this.project = data['hydra:member'];
     })
   }
 
-  onSubmit() {
-    console.log(this.projectForm.value);
-    this.projectService.create(this.projectForm.value).subscribe(data => {
-      console.log(data);
-    });
+  openModal(): void {
+    const dialogRef = this.dialog.open(AddProjectModalComponent, {});
   }
 
 }
