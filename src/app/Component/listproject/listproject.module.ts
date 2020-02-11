@@ -7,7 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {AddProjectModalComponent } from "../../add-project-modal/add-project-modal.component";
+import {AddProjectModalComponent } from "../add-project-modal/add-project-modal.component";
 
 @NgModule({
   declarations: [ListprojectComponent, AddProjectModalComponent],

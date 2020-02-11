@@ -4,7 +4,7 @@ import {ProjetService} from "../../../Service/projet.service";
 import {TypeService} from "../../../Service/type.service";
 import {AddAwardModalComponent} from "../add-award-modal/add-award-modal.component";
 import {MatDialog} from "@angular/material/dialog";
-import {AddProjectModalComponent} from "../../add-project-modal/add-project-modal.component";
+import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
 
 @Component({
   selector: 'app-listproject',

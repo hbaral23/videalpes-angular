@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TypeService} from "../../Service/type.service";
-import {ProjetService} from "../../Service/projet.service";
+import {TypeService} from "../../../Service/type.service";
+import {ProjetService} from "../../../Service/projet.service";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
