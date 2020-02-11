@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import {FormGroup, FormControl} from "@angular/forms";
-import {ProjetService} from "../../../Service/projet.service";
-import {TypeService} from "../../../Service/type.service";
+import {FormGroup, FormControl} from '@angular/forms';
+import {ProjetService} from '../../../Service/projet.service';
+import {TypeService} from '../../../Service/type.service';
 
 
 @Component({
@@ -19,10 +19,10 @@ export class ProjectComponent implements OnInit {
     type: new FormControl('')
   });
 
-  type : [] = [];
+  type: [] = [];
 
 
-  constructor(private formBuilder: FormBuilder,private projectService : ProjetService, private typeService: TypeService) { }
+  constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService) { }
 
   ngOnInit() {
     this.typeService.get().subscribe(data => {
@@ -30,9 +30,9 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.projectForm.value);
-    this.projectService.create(this.projectForm.value).subscribe(data =>{
+    this.projectService.create(this.projectForm.value).subscribe(data => {
       console.log(data);
     });
   }
