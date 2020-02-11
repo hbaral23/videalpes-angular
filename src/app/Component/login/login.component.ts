@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   public profileForm: FormGroup;
   hide = true;
 
-  constructor() { 
+  constructor() {
     this.profileForm = new FormGroup({
-      login: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-    }); 
+      login: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    });
   }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
        // if (this.authservice.login(this.profileForm.value.login, this.profileForm.value.password))
     }
   }
-  
+
   clicktest(e) {
     console.log('hide txt');
   }
