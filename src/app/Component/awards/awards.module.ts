@@ -10,13 +10,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {EditAwardModalComponent} from "../edit-award-modal/edit-award-modal.component";
+import {DeleteAwardModalComponent} from "../delete-award-modal/delete-award-modal.component";
 
 
 @NgModule({
   declarations: [
     AwardsComponent,
     AddAwardModalComponent,
-    EditAwardModalComponent],
+    EditAwardModalComponent,
+    DeleteAwardModalComponent],
   imports: [
     CommonModule,
     MatDialogModule,
@@ -29,7 +31,8 @@ import {EditAwardModalComponent} from "../edit-award-modal/edit-award-modal.comp
   ],
   entryComponents: [
     AddAwardModalComponent,
-    EditAwardModalComponent
+    EditAwardModalComponent,
+    DeleteAwardModalComponent
   ],
 })
 export class AwardsModule {

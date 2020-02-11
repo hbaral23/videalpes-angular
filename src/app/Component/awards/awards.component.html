@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
     <h2>Gestion des prix</h2>
-    <button mat-raised-button color="primary" (click)="openModal()">
+    <button mat-raised-button class="addBtn" (click)="openAddModal()">
       <i class="material-icons">
         post_add
       </i>
@@ -11,33 +11,35 @@
   <div class="loader">
     <mat-spinner *ngIf="loadingResults"></mat-spinner>
   </div>
-  <table class="table" *ngIf="!loadingResults">
-    <thead>
-    <tr>
-      <th class="numTh">No.</th>
-      <th class="awardTh">Désignation du prix</th>
-      <th class="projectTh">Projets associés</th>
-      <th class="actionTh">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of listAwardsInterface">
-      <td>{{item.id}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.type['title']}}</td>
-      <td>
-        <button mat-mini-fab class="editBtn" (click)="openEditModal(listAwardsInterface[1])">
-          <i class="material-icons">
-            create
-          </i>
-        </button>
-        <button mat-mini-fab color="warn" class="deleteBtn" (click)="deleteAward(item.id)">
-          <i class="material-icons">
-            delete_forever
-          </i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-hover" *ngIf="!loadingResults">
+      <thead>
+      <tr>
+        <th class="numTh">No.</th>
+        <th class="awardTh">Désignation du prix</th>
+        <th class="projectTh">Projets associés</th>
+        <th class="actionTh">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of listAwardsInterface">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.type['title']}}</td>
+        <td>
+          <button mat-mini-fab class="editBtn" (click)="openEditModal(item)">
+            <i class="material-icons">
+              create
+            </i>
+          </button>
+          <button mat-mini-fab color="warn" class="deleteBtn" (click)="openDeleteModal(item)">
+            <i class="material-icons">
+              delete_forever
+            </i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

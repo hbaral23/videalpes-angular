@@ -11,8 +11,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class EditAwardModalComponent implements OnInit {
 
-  listAwardsInterface: AwardInterface [] = [];
-
   editAwardForm = new FormGroup({
     name: new FormControl(''),
     type: new FormControl('')
@@ -23,11 +21,18 @@ export class EditAwardModalComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
-  editAward(id) {
+  editDataAward(id) {
+    this.dialogRef.close('données modifiées');
+    console.log('idddd', this.editAwardForm.value);
+    this.awardsService.edit(id, this.editAwardForm.value).subscribe(res => {
+        console.log('data modifiées', res);
 
+      }
+    );
   }
 
 }
+
+

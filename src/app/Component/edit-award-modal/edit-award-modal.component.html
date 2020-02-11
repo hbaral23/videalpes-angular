@@ -1,17 +1,18 @@
 <h3 mat-dialog-title>Modifier un Prix </h3>
 
-<form class="example-container" [formGroup]="editAwardForm">
+<form class="example-container" [formGroup]="editAwardForm" (ngSubmit)="editDataAward(data.listAward.id)">
   <div>
     <mat-form-field appearance="fill" style="width:40em">
-      <mat-label>{{data.mydata.name}}</mat-label>
-      <input matInput #input maxlength="50" formControlName="name" type="text">
+      <mat-label>Nom du Prix</mat-label>
+      <input matInput maxlength="50" formControlName="name" type="text" value="{{data.listAward.name}}">
     </mat-form-field>
   </div>
   <div>
-
     <mat-form-field appearance="fill" style="width:40em">
-            <mat-label>type</mat-label>
-      <input matInput #input maxlength="50" formControlName="type" type="text" >
+      <mat-label>Type de projet associé : {{data.listAward.type['title']}}</mat-label>
+      <mat-select formControlName="type" value="{{data.listAward.type['title']}}">
+        <mat-option *ngFor="let t of data.typeProject" value="{{t['@id']}}">{{t['title']}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class="modalBtn">
