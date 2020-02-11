@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectComponent } from "./Component/project/project.component";
+import { ProjectComponent } from './Component/project/project.component';
 import { AwardsComponent } from './Component/awards/awards.component';
 import { LoginComponent } from './Component/login/login.component';
 import { ListprojectComponent } from './Component/listproject/listproject.component';
