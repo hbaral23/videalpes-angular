@@ -1,23 +1,37 @@
 <div class="container">
-  <h2>Liste des prix</h2>
-  <button type="button" class="btn btn-primary">ajouter</button>
+  <div class="header">
+    <h2>Gestion des prix</h2>
+    <button mat-raised-button color="primary" (click)="openModal()">
+      <i class="material-icons">
+        post_add
+      </i>
+      Ajouter
+    </button>
+  </div>
   <table class="table">
     <thead>
     <tr>
-      <th>No.</th>
-      <th>Prix</th>
-      <th>Projets associés</th>
-      <th>Action</th>
+      <th class="numTh">No.</th>
+      <th class="awardTh">Désignation du prix</th>
+      <th class="projectTh">Projets associés</th>
+      <th class="actionTh">Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>prix de ...</td>
-      <td>film/web</td>
+    <tr *ngFor="let item of listAwardsInterface">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <!--      <td>{{item.type['title']}}</td>-->
       <td>
-        <button type="button" class="btn">Editer</button>
-        <button type="button" class="btn btn-danger">Supprimer</button>
+        <button mat-mini-fab class="editBtn" (click)="openModal()">
+          <i class="material-icons">
+            create
+          </i>
+        </button>
+        <button mat-mini-fab color="warn" class="deleteBtn" (click)="deleteAward(item.id)">
+          <i class="material-icons">
+            delete_forever
+          </i></button>
       </td>
     </tr>
     </tbody>
