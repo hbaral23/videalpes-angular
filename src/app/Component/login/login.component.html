@@ -1,34 +1,36 @@
-<div class="ui-g">
-    <div class="ui-g-12">
-        <img class="Logomultimedialpes" src="../../../assets/Resources/img/Logomultimedialpes.png">
-    </div>
+<div class="login-container" style="height: 100%">
+  <div class="ui-g">
+      <div class="ui-g-12">
+          <img class="Logomultimedialpes" src="../../../assets/Resources/img/Logomultimedialpes.png">
+      </div>
+  </div>
+
+  <form [formGroup]="profileForm" class="example-form loginform" (ngSubmit)="onSubmit()">
+      <div class="ui-g">
+          <div class="ui-g-12">
+              <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+                  <input class="plnputlogin" value="" type="text" pInputText placeholder="Identifiant" formControlName="login">
+              </div>
+          </div>
+      </div>
+
+      <div class="ui-g">
+          <div class="ui-g-12">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                <input class="plnputlogin" [type]="hide ? 'password' : 'text'" value="" type="text" pInputText placeholder="Mot de passe" formControlName="password">
+                <button pButton class="btnaddon" type="button" (click)="hide = !hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+          </div>
+      </div>
+
+      <div class="ui-g">
+          <div class="ui-g-12">
+              <button mat-raised-button type="submit" color="medium" [disabled]="!profileForm.valid">Se connecter</button>
+          </div>
+      </div>
+  </form>
 </div>
-
-<form [formGroup]="profileForm" class="example-form loginform" (ngSubmit)="onSubmit()">  
-    <div class="ui-g">
-                    <div class="ui-g-12">
-                        <div class="ui-inputgroup">
-                            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-                            <input class="plnputlogin" value="" type="text" pInputText placeholder="Identifiant" formControlName="login">       
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ui-g">
-                    <div class="ui-g-12">
-                    <div class="ui-inputgroup">
-                        <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                        <input class="plnputlogin" [type]="hide ? 'password' : 'text'" value="" type="text" pInputText placeholder="Mot de passe" formControlName="password">
-                        <button pButton class="btnaddon" type="button" (click)="hide = !hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>  
-                    </div>
-                </div>
-            </div>
-
-            <div class="ui-g">
-                <div class="ui-g-12">
-                    <button mat-raised-button type="submit" color="medium" [disabled]="!profileForm.valid">Se connecter</button>
-                </div>
-            </div>
-        </form>

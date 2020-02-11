@@ -1,1 +1,47 @@
-<p>listproject works!</p>
+<div class="container">
+  <div class="header">
+    <h2>Liste des projets</h2>
+    <button mat-raised-button color="primary" (click)="openModal()">
+      <i class="material-icons">
+        post_add
+      </i>
+      Ajouter
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="id" >id</th>
+      <th class="title">title</th>
+      <th class="description">description</th>
+      <th class="persons">personnes</th>
+      <th class="type">type</th>
+      <th class="action">actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let info of project">
+      <td>{{info['id']}}</td>
+      <td>{{info['title']}}</td>
+      <td>{{info['description']}}</td>
+      <td>{{info['persons']}}</td>
+      <td>{{info['type'].title}}</td>
+      <td>
+        <button mat-mini-fab class="editBtn">
+          <i class="material-icons">
+            create
+          </i>
+        </button>
+        <button mat-mini-fab color="warn" class="deleteBtn">
+          <i class="material-icons">
+            delete_forever
+          </i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+
+

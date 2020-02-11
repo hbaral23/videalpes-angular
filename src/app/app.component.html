@@ -1,6 +1,7 @@
 <link type="text/css" href="/node_modules/primeicons/primeicons.css" />
 <link type="text/css" href="/node_modules/primeng/resources/themes/nova-light/theme.css" />
 <link type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="displaymenu">
     <mat-toolbar color="primary" class="example-toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
@@ -26,3 +27,6 @@
   </div>
 
 <router-outlet *ngIf="!displaymenu"></router-outlet>
+=======
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<router-outlet></router-outlet>
