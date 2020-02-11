@@ -18,7 +18,7 @@ export class ListprojectComponent implements OnInit {
   });
 
   type: [] = [];
-
+  project : [] = [];
 
   constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService) { }
 
@@ -27,6 +27,10 @@ export class ListprojectComponent implements OnInit {
     //     this.type = data['hydra:member'];
     //     console.log(this.type);
     // });
+    this.projectService.get().subscribe(data => {
+      console.log(data['hydra:member']);
+      this.project = data['hydra:member'];
+    })
   }
 
   onSubmit() {

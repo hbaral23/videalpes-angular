@@ -1,3 +1,25 @@
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>description</th>
+    <th>personnes</th>
+    <th>type</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let info of project">
+      <td>{{info['id']}}</td>
+      <td>{{info['title']}}</td>
+      <td>{{info['description']}}</td>
+      <td>{{info['persons']}}</td>
+      <td>{{info['type']}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
 <div class="FormProject">
   <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
     <label>Titre du projet</label>
