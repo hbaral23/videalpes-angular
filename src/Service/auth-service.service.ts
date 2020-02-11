@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 
-const url = environment.url;
+const url = environment.http_url;
 
 @Injectable({
   providedIn: 'root'
