@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  @Input() navItems: Array<any>;
+  @HostBinding('class.sidebar-nav') true;
+  @HostBinding('attr.role') role;
+
+  constructor() {
+  }
 
   ngOnInit() {
+
+  }
+  
+  isDivider(navItem) {
+      return !!navItem.divider
+  }
+
+  isTitle(navItem) {
+      return !!navItem.title
+  }
+
+  isHasChild(navItem) {
+      return navItem.hasOwnProperty('children') && navItem.children.length > 0;
   }
 
 }

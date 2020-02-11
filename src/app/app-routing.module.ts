@@ -9,11 +9,11 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'project', component: ProjectComponent, canActivate: [AuthGuard]},
-  {path: 'award', component: AwardsComponent, canActivate: [AuthGuard]},
-  {path: 'project', component: ProjectComponent, canActivate: [AuthGuard]},
-  {path: 'vote', component: VoteComponent, canActivate: [AuthGuard]},
-  {path: 'listproject', component: ListprojectComponent, canActivate: [AuthGuard]},
+  {path: 'project', component: ProjectComponent},
+  {path: 'award', component: AwardsComponent},
+  {path: 'project', component: ProjectComponent},
+  {path: 'vote', component: VoteComponent},
+  {path: 'listproject', component: ListprojectComponent},
   {path: '',   redirectTo: '/login', pathMatch: 'full' },
   {path: '**', redirectTo: '/login' }
 ];
