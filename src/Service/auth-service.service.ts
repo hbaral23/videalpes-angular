@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 const url = environment.url;
 
@@ -14,7 +15,15 @@ export class AuthServiceService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(data): Observable<any> {
-    return this.http.post(url + '/api/login_check', data);
+    console.log(data);
+    const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+    const body = new URLSearchParams();
+    body.append('_username', data._username);
+    body.append('_password', data._password);
+    return this.http.post(url + '/api/login_check', body.toString(), {headers}).pipe(map((res: any) => {
+      this.setToken(res.token);
+      this.router.navigate(['/project']);
+    }));
   }
 
   logout() {
