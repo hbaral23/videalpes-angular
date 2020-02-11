@@ -14,6 +14,7 @@ import {ProjectModule} from './Component/project/project.module';
 import {ListprojectModule} from './Component/listproject/listproject.module';
 import {VoteModule} from './Component/vote/vote.module';
 import {UserModule} from './Component/user/user.module';
+import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,10 @@ import {UserModule} from './Component/user/user.module';
     ListprojectModule,
     VoteModule,
     UserModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

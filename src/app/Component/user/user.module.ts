@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserComponent} from './user.component';
 import {ButtonModule, CheckboxModule, InputTextModule, RadioButtonModule} from 'primeng';
+import {MatButtonModule, MatIconModule} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -12,7 +14,10 @@ import {ButtonModule, CheckboxModule, InputTextModule, RadioButtonModule} from '
     InputTextModule,
     ButtonModule,
     RadioButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

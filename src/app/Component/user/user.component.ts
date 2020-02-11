@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class UserComponent implements OnInit {
   public newUserForm: FormGroup;
+  hide: any;
 
   constructor() {// private userService: UserService
     this.newUserForm = new FormGroup({
@@ -23,7 +24,7 @@ export class UserComponent implements OnInit {
   submitUser() {
     console.log(this.newUserForm);
     // this.userService.createuser().subscribe(data => {
-    // snackbar 
+    // snackbar
     // });
   }
 }
