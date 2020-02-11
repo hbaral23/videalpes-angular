@@ -1,43 +1,67 @@
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>title</th>
-    <th>description</th>
-    <th>personnes</th>
-    <th>type</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="container">
+  <div class="header">
+    <h2>Liste des projets</h2>
+    <button mat-raised-button color="primary">
+      <i class="material-icons">
+        post_add
+      </i>
+      Ajouter
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="id">id</th>
+      <th class="title">title</th>
+      <th class="description">description</th>
+      <th class="persons">personnes</th>
+      <th class="type">type</th>
+    </tr>
+    </thead>
+    <tbody>
     <tr *ngFor="let info of project">
       <td>{{info['id']}}</td>
       <td>{{info['title']}}</td>
       <td>{{info['description']}}</td>
       <td>{{info['persons']}}</td>
       <td>{{info['type']}}</td>
+      <td>
+        <button mat-mini-fab class="editBtn">
+          <i class="material-icons">
+            create
+          </i>
+        </button>
+        <button mat-mini-fab color="warn" class="deleteBtn">
+          <i class="material-icons">
+            delete_forever
+          </i></button>
+      </td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
+  <div class="FormProject">
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <label>Titre du projet</label>
+      <input id="title" type="text" formControlName="title">
 
-<div class="FormProject">
-  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-    <label>Titre du projet</label>
-    <input id="title" type="text" formControlName="title">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" cols="50" formControlName="description"></textarea>
 
-    <label for="description">Description</label>
-    <textarea id="description" name="description" rows="5" cols="50" formControlName="description"></textarea>
+      <label for="persons">Personnes</label>
+      <textarea id="persons" name="persons" rows="5" cols="50" formControlName="persons"></textarea>
 
-    <label for="persons">Personnes</label>
-    <textarea id="persons" name="persons" rows="5" cols="50" formControlName="persons"></textarea>
+      <!--    <label for="type">Type du projet :</label>-->
+      <!--    <select name="Type" id="type" formControlName="type">-->
+      <!--      <option value="type" *ngFor="let typeInfo of type">{{typeInfo['title']}}</option>-->
+      <!--    </select>-->
 
-    <!--    <label for="type">Type du projet :</label>-->
-    <!--    <select name="Type" id="type" formControlName="type">-->
-    <!--      <option value="type" *ngFor="let typeInfo of type">{{typeInfo['title']}}</option>-->
-    <!--    </select>-->
+      <button class="button" type="submit">Créer projet</button>
 
-    <button class="button" type="submit">Créer projet</button>
-
-  </form>
+    </form>
+  </div>
 </div>
+
+
+
 

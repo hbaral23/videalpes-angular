@@ -5,13 +5,22 @@
     width: 700px;
   }
 }
-table,
-td {
-  border: 1px solid #333;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
-thead,
-tfoot {
-  background-color: #333;
-  color: #fff;
+.editBtn {
+  background-color: #383a3e;
+}
+
+.deleteBtn {
+  margin-left: 4em;
 }
