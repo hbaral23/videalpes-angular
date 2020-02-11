@@ -27,7 +27,7 @@ export class AuthServiceService {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    this.removeToken();
     this.router.navigate(['/login']);
   }
 
@@ -37,5 +37,9 @@ export class AuthServiceService {
 
   getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  removeToken(): void {
+    localStorage.removeItem('token');
   }
 }
