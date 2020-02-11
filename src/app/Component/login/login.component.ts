@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { ButtonModule } from 'primeng/primeng';
+import { AuthServiceService } from 'src/Service/auth-service.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public profileForm: FormGroup;
   hide = true;
 
-  constructor() {
+  constructor(private authService: AuthServiceService) {
     this.profileForm = new FormGroup({
       login: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -25,7 +26,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.profileForm.valid) {
-       // if (this.authservice.login(this.profileForm.value.login, this.profileForm.value.password))
+      this.authService.login({ login: this.profileForm.value.login, password: this.profileForm.value.password}).subscribe(
+        answer =>
+          console.log(answer)
+        );
     }
   }
 
