@@ -11,7 +11,7 @@
 
 .loader {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 table {
@@ -19,9 +19,15 @@ table {
     background-color: #383a3e;
     color: white;
   }
+  th{
+    vertical-align: middle;
+    i{
+      vertical-align: top;
+    }
+  }
 
   .numTh {
-    width: 5em;
+    width: 6em;
   }
 
   .projectTh {
@@ -30,13 +36,14 @@ table {
 
   .actionTh {
     width: 15em;
+    text-align: center;
   }
 }
 
 
 //buttons
 .addBtn {
-  background-color: darkcyan;
+  background-color: #bcbec2;
   color: white;
 }
 

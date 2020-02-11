@@ -9,15 +9,21 @@
     </button>
   </div>
   <div class="loader">
-    <mat-spinner *ngIf="loadingResults"></mat-spinner>
+    <mat-spinner class="spinner" *ngIf="loadingResults"></mat-spinner>
   </div>
   <div class="table-responsive">
-    <table class="table table-hover" *ngIf="!loadingResults">
+    <table class="table table-hover  table-striped" *ngIf="!loadingResults">
       <thead>
       <tr>
-        <th class="numTh">No.</th>
-        <th class="awardTh">Désignation du prix</th>
-        <th class="projectTh">Projets associés</th>
+        <th class="numTh">No. <i class="material-icons">
+          unfold_more
+        </i></th>
+        <th class="awardTh">Désignation du prix <i class="material-icons">
+          unfold_more
+        </i></th>
+        <th class="projectTh">Projets associés<i class="material-icons">
+          unfold_more
+        </i></th>
         <th class="actionTh">Actions</th>
       </tr>
       </thead>
@@ -26,7 +32,7 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.type['title']}}</td>
-        <td>
+        <td class="actionTh">
           <button mat-mini-fab class="editBtn" (click)="openEditModal(item)">
             <i class="material-icons">
               create

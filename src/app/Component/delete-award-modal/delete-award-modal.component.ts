@@ -21,6 +21,7 @@ export class DeleteAwardModalComponent implements OnInit {
     this.awardsService.delete(id).subscribe(res => {
       console.log(res);
     });
+    location.reload();
   }
 
 }

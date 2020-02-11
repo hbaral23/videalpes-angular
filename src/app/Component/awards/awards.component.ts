@@ -65,7 +65,7 @@ export class AwardsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('modal edit', result);
+      console.log('modal edit');
     });
   }
 

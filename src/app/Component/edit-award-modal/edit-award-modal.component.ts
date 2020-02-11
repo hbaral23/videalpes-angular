@@ -28,9 +28,9 @@ export class EditAwardModalComponent implements OnInit {
     console.log('idddd', this.editAwardForm.value);
     this.awardsService.edit(id, this.editAwardForm.value).subscribe(res => {
         console.log('data modifiées', res);
-
       }
     );
+    location.reload();
   }
 
 }
