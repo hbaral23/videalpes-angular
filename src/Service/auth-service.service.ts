@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 
-const url = environment.http_url;
+const url = environment.url;
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class AuthServiceService {
     body.append('_password', data._password);
     return this.http.post(url + '/api/login_check', body.toString(), {headers}).pipe(map((res: any) => {
       this.setToken(res.token);
-      this.router.navigate(['/project']);
+      this.router.navigate(['/listproject']);
     }));
   }
 
