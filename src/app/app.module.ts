@@ -14,6 +14,12 @@ import {ProjectModule} from './Component/project/project.module';
 import {ListprojectModule} from './Component/listproject/listproject.module';
 import {VoteModule} from './Component/vote/vote.module';
 import {UserModule} from './Component/user/user.module';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import {UserModule} from './Component/user/user.module';
     ListprojectModule,
     VoteModule,
     UserModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -8,7 +8,10 @@
       Ajouter
     </button>
   </div>
-  <table class="table">
+  <div class="loader">
+    <mat-spinner *ngIf="loadingResults"></mat-spinner>
+  </div>
+  <table class="table" *ngIf="!loadingResults">
     <thead>
     <tr>
       <th class="numTh">No.</th>
@@ -21,9 +24,9 @@
     <tr *ngFor="let item of listAwardsInterface">
       <td>{{item.id}}</td>
       <td>{{item.name}}</td>
-      <!--      <td>{{item.type['title']}}</td>-->
+      <td>{{item.type['title']}}</td>
       <td>
-        <button mat-mini-fab class="editBtn" (click)="openModal()">
+        <button mat-mini-fab class="editBtn" (click)="openEditModal(listAwardsInterface[1])">
           <i class="material-icons">
             create
           </i>
