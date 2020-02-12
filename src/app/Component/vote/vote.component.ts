@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSelectModule, MatOptionModule } from '@angular/material';
 
 @Component({
   selector: 'app-vote',
@@ -6,24 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit {
+  awards: string[] = ['Prix 1','Prix 2', 'Prix 3'];  
   data: any;
-  
-  constructor() { 
+  films = ['FILM 1','FILM 2','FILM 3'];
+  filmsvotes =  [25, 150, 100];
+  colors: string[] = [];
+  darkcolors: string[] = [];
+  options = {
+    responsive: false,
+    maintainAspectRatio: false
+  };
+
+  constructor() {
+    for (let i = 0 ; i < this.films.length; i++) {      
+      this.colors[i] = this.getRdmColor();
+      this.darkcolors[i] = this.colors[i].substring(0,this.colors[i].length-1)+", 0.9)";
+    }
     this.data = {
-      labels: ['A','B','C'],
+      labels: this.films,
       datasets: [
           {
-              data: [300, 50, 100],
-              backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ],
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ]
+              data: this.filmsvotes,
+              backgroundColor: this.colors,
+              hoverBackgroundColor: this.darkcolors
           }]    
       };
   }
@@ -31,4 +37,17 @@ export class VoteComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  
+  getRdmColor () {
+    return "rgba(" + this.getRandomInt() + ", " + this.getRandomInt() + ", " + this.getRandomInt() + ")";
+  }
+
+  getRandomInt() {
+    return Math.floor(Math.random() * Math.floor(256));
+  }
+
+  awardselectedchanged() {
+
+  }
 }

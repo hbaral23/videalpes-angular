@@ -1,2 +1,10 @@
+<mat-form-field class="full-width">
+  <mat-select placeholder="Prix">
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let award of awards" [value]="award" (click)="awardselectedchanged()">
+      {{award}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
-<p-chart type="doughnut"></p-chart>
+<p-chart type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>
