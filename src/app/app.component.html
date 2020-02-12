@@ -2,28 +2,5 @@
 <link type="text/css" href="/node_modules/primeng/resources/themes/nova-light/theme.css" />
 <link type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
 
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="displaymenu">
-    <mat-toolbar color="primary" class="example-toolbar">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Multi Medi'Alpes</h1>
-    </mat-toolbar>
-  
-    <mat-sidenav-container class="example-sidenav-container">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
-          <a mat-list-item *ngFor="let item of menuItems" routerLink="{{item.url}}">
-              <mat-icon>{{item.icon}}</mat-icon>
-              &nbsp;
-            {{item.title}}
-          </a>
-        </mat-nav-list>
-      </mat-sidenav>
-  
-      <mat-sidenav-content>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-
-<router-outlet *ngIf="!displaymenu"></router-outlet>
+<app-menu *ngIf="displaymenu"></app-menu>
+<router-outlet></router-outlet>
