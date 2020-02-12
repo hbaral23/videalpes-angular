@@ -9,6 +9,7 @@ import {LaunchService} from '../../../Service/launch.service';
 export class DashboardComponent implements OnInit {
 
   launchVote;
+  showVotes = false;
 
   constructor(private launchService: LaunchService) {
   }
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
   }
 
   showResults() {
+    this.showVotes = !this.showVotes;
     console.log('resultats des votes');
   }
 }
