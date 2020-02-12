@@ -5,6 +5,7 @@ import {TypeService} from "../../../Service/type.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
 import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
+import {DeleteItemModalComponent} from "../delete-item-modal/delete-item-modal.component";
 
 @Component({
   selector: 'app-listproject',
@@ -32,8 +33,19 @@ export class ListprojectComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProjectModalComponent, {});
   }
 
-  delete(id : number){
-    this.projectService.delete(id).subscribe();
+  delete(info){
+    console.log(info.title);
+    const dialogRef = this.dialog.open(DeleteItemModalComponent,{
+      data:{
+        element: info.title
+      }});
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.projectService.delete(info.id).subscribe(() => {
+          location.reload();
+        });
+      }
+    });
   }
 
   openEditProjectModal(info){
