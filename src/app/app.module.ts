@@ -14,7 +14,9 @@ import {ProjectModule} from './Component/project/project.module';
 import {ListprojectModule} from './Component/listproject/listproject.module';
 import {VoteModule} from './Component/vote/vote.module';
 import {UserModule} from './Component/user/user.module';
-import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {TypesModule} from './Component/types/types.module';
+import {DeleteItemModalModule} from './Component/delete-item-modal/delete-item-modal.module';
 
 @NgModule({
   declarations: [
@@ -22,21 +24,24 @@ import {MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '
     MenuComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ServiceModule,
-    ReactiveFormsModule,
-    AwardsModule,
-    LoginModule,
-    ProjectModule,
-    ListprojectModule,
-    VoteModule,
-    UserModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatIconModule,
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      ServiceModule,
+      ReactiveFormsModule,
+      AwardsModule,
+      LoginModule,
+      ProjectModule,
+      ListprojectModule,
+      VoteModule,
+      UserModule,
+      MatSidenavModule,
+      MatListModule,
+      MatToolbarModule,
+      MatIconModule,
+      MatButtonModule,
+      TypesModule,
+      DeleteItemModalModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

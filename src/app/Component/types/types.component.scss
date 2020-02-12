@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.numTh {
+  width: 5em;
+}
+
+.projectTh {
+  width: 20em;
+}
+
+.actionTh {
+  width: 15em;
+}
+
+.editBtn {
+  background-color: #383a3e;
+}
+
+.deleteBtn {
+  margin-left: 4em;
+}
