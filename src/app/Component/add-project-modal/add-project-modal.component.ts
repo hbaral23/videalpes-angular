@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {TypeService} from "../../../Service/type.service";
-import {ProjetService} from "../../../Service/projet.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {TypeService} from '../../../Service/type.service';
+import {ProjetService} from '../../../Service/projet.service';
+import {FormControl, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -11,16 +11,20 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class AddProjectModalComponent implements OnInit {
 
+  type: [] = [];
+
   projectForm = new FormGroup({
-    title : new FormControl(''),
+    title: new FormControl(''),
     description: new FormControl(''),
     persons: new FormControl(''),
-    type: new FormControl('')
+    type: new FormControl(''),
+    file: new FormControl('')
   });
 
-  constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private typeService: TypeService, private projectService: ProjetService) { }
-
-  type: [] = [];
+  constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any, private typeService: TypeService,
+              private projectService: ProjetService) {
+  }
 
   ngOnInit() {
     this.type = this.data.type;
@@ -31,6 +35,9 @@ export class AddProjectModalComponent implements OnInit {
     this.projectService.create(this.projectForm.value).subscribe(data => {
       this.dialogRef.close(data);
     });
+  }
+
+  openWindow(){
   }
 
 }

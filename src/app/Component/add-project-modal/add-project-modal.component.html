@@ -1,5 +1,5 @@
 <div class="FormProject">
-  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" ng-scrollbar>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
       <input matInput id="title" type="text" formControlName="title" required>
@@ -12,7 +12,7 @@
 
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="persons">Personnes</mat-label>
-      <textarea matInput id="persons" name="persons" rows="5" cols="50" formControlName="persons" required></textarea>
+      <textarea matInput id="persons" name="persons" rows="3" cols="50" formControlName="persons" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="type">Type du projet :</mat-label>
@@ -20,9 +20,20 @@
         <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
-
+    <div class="inputBrowser">
+      <mat-form-field appearance="fill" style="width:90%">
+        <mat-label>Sélectionner une image</mat-label>
+        <input matInput id="filename" type="text" formControlName="file" readonly required>
+      </mat-form-field>
+      <div>
+        <button mat-mini-fab color="primary" class="fileBtn" (click)="openWindow()"><i class="material-icons">
+          attach_file
+        </i></button>
+      </div>
+    </div>
     <div class="modalBtn">
-      <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer</button>
+      <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer
+      </button>
       <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
     </div>
   </form>
