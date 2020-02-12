@@ -15,9 +15,9 @@
                 [value]="data.projet.persons" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
-      <mat-label for="type">Type du projet :</mat-label>
+      <mat-label for="type">Type du projet : {{data.projet.type.title}}</mat-label>
       <mat-select name="Type" id="type" formControlName="type" required>
-        <mat-option *ngFor="let data of data.type" value="{{data['@id']}}">{{data['title']}}</mat-option>
+        <mat-option *ngFor="let data of data.type" value="{{data['@id']}}"></mat-option>
       </mat-select>
     </mat-form-field>
 
