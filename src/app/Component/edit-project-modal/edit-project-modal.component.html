@@ -1,0 +1,29 @@
+<div class="FormProject">
+  <form [formGroup]="projectForm" (ngSubmit)="editProjet(data.projet.id)">
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label>Titre du projet</mat-label>
+      <input matInput id="title" type="text" formControlName="title" value="{{data.projet.title}}" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="description">Description</mat-label>
+      <textarea matInput id="description" name="description" rows="5" cols="50" formControlName="description"
+                [value]="data.projet.description" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="persons">Personnes</mat-label>
+      <textarea matInput id="persons" name="persons" rows="5" cols="50" formControlName="persons"
+                [value]="data.projet.persons" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="type">Type du projet : {{data.projet.type.title}}</mat-label>
+      <mat-select name="Type" id="type" formControlName="type" required>
+        <mat-option *ngFor="let data of data.type" value="{{data['@id']}}"></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="modalBtn">
+      <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Modifier</button>
+      <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
+    </div>
+  </form>
+</div>
