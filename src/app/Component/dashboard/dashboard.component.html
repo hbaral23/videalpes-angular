@@ -4,13 +4,13 @@
 </div>
 
 <div class="groupBtn">
-  <button mat-button class="launchBtn" color="primary" (click)="launching()">
+  <button mat-button class="launchBtn" color="primary" *ngIf="launchVote.authorization ==false" (click)="launching()">
     <i class="material-icons">
       play_circle_outline
     </i>Lancer les votes
   </button>
 
-  <button mat-button class="stopBtn" color="primary" (click)="stopLaunching()">
+  <button mat-button class="stopBtn" color="primary" *ngIf="launchVote.authorization ==true" (click)="stopLaunching()">
     <i class="material-icons">
       stop
     </i>Stopper les votes
