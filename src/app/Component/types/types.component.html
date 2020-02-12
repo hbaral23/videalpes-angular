@@ -9,31 +9,37 @@
     </button>
   </div>
 
-  <table mat-table [dataSource]="this.dataSource" class="w-100">
-    <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef>Type</th>
-      <td mat-cell *matCellDef="let element">{{element.title}}</td>
-    </ng-container>
+  <div class="loader">
+    <mat-spinner class="spinner" *ngIf="loadingResults"></mat-spinner>
+  </div>
 
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef class="actionTh">Actions</th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-mini-fab class="editBtn">
-          <i class="material-icons">
-            create
-          </i>
-        </button>
-        <button mat-mini-fab color="warn" class="deleteBtn" (click)="deleteType(element)">
-          <i class="material-icons">
-            delete_forever
-          </i>
-        </button>
-      </td>
-    </ng-container>
+  <div class="table-responsive" *ngIf="!loadingResults">
+    <table mat-table [dataSource]="this.dataSource" class="w-100 table table-hover  table-striped">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Type<i class="material-icons">unfold_more</i></th>
+        <td mat-cell *matCellDef="let element">{{element.title}}</td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="actionTh">Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-mini-fab class="editBtn" (click)="editType(element)">
+            <i class="material-icons">
+              create
+            </i>
+          </button>
+          <button mat-mini-fab color="warn" class="deleteBtn" (click)="deleteType(element)">
+            <i class="material-icons">
+              delete_forever
+            </i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 
   <!--<table class="table">
     <thead>

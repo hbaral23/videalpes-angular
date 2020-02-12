@@ -2,9 +2,11 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ProjetService} from "../../../Service/projet.service";
 import {TypeService} from "../../../Service/type.service";
-import {AddAwardModalComponent} from "../add-award-modal/add-award-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
+import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
+import {DeleteItemModalComponent} from "../delete-item-modal/delete-item-modal.component";
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-listproject',
@@ -14,22 +16,66 @@ import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.c
 export class ListprojectComponent implements OnInit {
 
   type: [] = [];
-  project : [] = [];
+  project: [] = [];
+  loadingResults = true;
 
-  constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService,private dialog: MatDialog) { }
+  dataSource = new MatTableDataSource();
+  displayedColumns = ['title', 'description', 'persons', 'type', 'actions'];
+
+  constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.typeService.get().subscribe(data => {
         this.type = data['hydra:member'];
     });
+    this.refresh();
+  }
+
+  refresh() {
     this.projectService.get().subscribe(data => {
-      console.log(data['hydra:member']);
       this.project = data['hydra:member'];
-    })
+      this.dataSource.data = this.project;
+      this.cdr.detectChanges();
+      this.loadingResults = false;
+    });
   }
 
   openModal(): void {
-    const dialogRef = this.dialog.open(AddProjectModalComponent, {});
+    const dialogRef = this.dialog.open(AddProjectModalComponent, {
+      data: {
+        type: this.type
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.refresh();
+      }
+    });
+  }
+
+  delete(info) {
+    console.log(info.title);
+    const dialogRef = this.dialog.open(DeleteItemModalComponent,{
+      data: {
+        element: info.title
+      }});
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.projectService.delete(info.id).subscribe(() => {
+          location.reload();
+        });
+      }
+    });
+  }
+
+  openEditProjectModal(info){
+    const dialogRef = this.dialog.open(EditProjectModalComponent,{
+      data:{
+        projet: info,
+        type: this.type
+      }
+    });
   }
 
 }

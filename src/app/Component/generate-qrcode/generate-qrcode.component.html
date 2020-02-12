@@ -1,0 +1,9 @@
+<p>generate-qrcode works!</p>
+<div id="exportthis">
+  <div *ngFor="let qrcode of QRCode">
+      <qrcode [qrdata]="qrcode['uuid']" [width]='256' [errorCorrectionLevel]="'M'" elementType="img"></qrcode>
+  </div>
+</div>
+
+
+<button (click)="pdf()">test pdf</button>

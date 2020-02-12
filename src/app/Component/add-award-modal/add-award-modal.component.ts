@@ -4,7 +4,6 @@ import {PrizeService} from '../../../Service/prize.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 
-
 @Component({
   selector: 'app-add-award-modal',
   templateUrl: './add-award-modal.component.html',
@@ -29,8 +28,8 @@ export class AddAwardModalComponent implements OnInit {
     this.dialogRef.close('données enregistrées');
     this.awardsService.create(this.createAwardForm.value).subscribe(res => {
       console.log(res);
-      window.location.reload();
     });
+    window.location.reload();
   }
 
 }

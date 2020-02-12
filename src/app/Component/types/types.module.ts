@@ -6,18 +6,19 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatOptionModule,
-  MatSelectModule,
+  MatOptionModule, MatProgressSpinnerModule,
+  MatSelectModule, MatSortModule,
   MatTableModule
 } from '@angular/material';
 import {AddTypeModalComponent} from '../add-type-modal/add-type-modal.component';
 import {AddProjectModalComponent} from '../add-project-modal/add-project-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {EditTypeModalComponent} from '../edit-type-modal/edit-type-modal.component';
 
 
 
 @NgModule({
-  declarations: [TypesComponent, AddTypeModalComponent],
+  declarations: [TypesComponent, AddTypeModalComponent, EditTypeModalComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -27,10 +28,13 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSortModule
   ],
   entryComponents: [
-    AddTypeModalComponent
+    AddTypeModalComponent,
+    EditTypeModalComponent
   ],
 })
 export class TypesModule { }
