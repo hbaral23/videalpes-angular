@@ -18,6 +18,7 @@ export class AwardsComponent implements OnInit {
   listAwardsInterface: AwardInterface [] = [];
   typeOfProjects: [] = [];
   loadingResults = false;
+  isawardsempty = false;
 
   constructor(private awardsService: PrizeService, private typeService: TypeService, public dialog: MatDialog) {
   }
@@ -34,6 +35,11 @@ export class AwardsComponent implements OnInit {
       this.listAwardsInterface = data['hydra:member'];
       console.log('on init', this.listAwardsInterface);
       this.loadingResults = false;
+      if (this.listAwardsInterface.length == 0){
+        this.isawardsempty = true;
+      } else {
+        this.isawardsempty = false;
+      }
     });
   }
 
