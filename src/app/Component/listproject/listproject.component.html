@@ -27,12 +27,12 @@
       <td>{{info['persons']}}</td>
       <td>{{info['type'].title}}</td>
       <td>
-        <button mat-mini-fab class="editBtn">
+        <button mat-mini-fab class="editBtn" (click)="openEditProjectModal()">
           <i class="material-icons">
             create
           </i>
         </button>
-        <button mat-mini-fab color="warn" class="deleteBtn">
+        <button mat-mini-fab color="warn" class="deleteBtn" (click)="delete(info['id'])">
           <i class="material-icons">
             delete_forever
           </i></button>

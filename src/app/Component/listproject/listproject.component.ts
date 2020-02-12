@@ -2,9 +2,9 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ProjetService} from "../../../Service/projet.service";
 import {TypeService} from "../../../Service/type.service";
-import {AddAwardModalComponent} from "../add-award-modal/add-award-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.component";
+import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
 
 @Component({
   selector: 'app-listproject',
@@ -30,6 +30,14 @@ export class ListprojectComponent implements OnInit {
 
   openModal(): void {
     const dialogRef = this.dialog.open(AddProjectModalComponent, {});
+  }
+
+  delete(id : number){
+    this.projectService.delete(id).subscribe();
+  }
+
+  openEditProjectModal(){
+    const dialogRef = this.dialog.open(EditProjectModalComponent);
   }
 
 }
