@@ -15,9 +15,6 @@
     <table class="table table-hover  table-striped" *ngIf="!loadingResults">
       <thead>
       <tr>
-        <th class="numTh">No. <i class="material-icons">
-          unfold_more
-        </i></th>
         <th class="awardTh">Désignation du prix <i class="material-icons">
           unfold_more
         </i></th>
@@ -29,7 +26,6 @@
       </thead>
       <tbody>
       <tr *ngFor="let item of listAwardsInterface">
-        <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.type['title']}}</td>
         <td class="actionTh">

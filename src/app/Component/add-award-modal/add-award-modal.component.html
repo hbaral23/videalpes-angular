@@ -1,14 +1,14 @@
 <h3 mat-dialog-title>Ajouter un Prix </h3>
 
-<form class="example-container" [formGroup]="createAwardForm" (ngSubmit)="save()">
+<form class="example-container" [formGroup]="createAwardForm" (ngSubmit)="save()" style=" width: 35em;">
   <div>
-    <mat-form-field appearance="fill" style="width:40em">
+    <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Désignation</mat-label>
       <input matInput maxlength="50" formControlName="name" type="text" required>
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field appearance="fill" style="width:40em">
+    <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Sélectionner un type de projet associé</mat-label>
       <mat-select formControlName="type" required>
         <mat-option *ngFor="let t of data.typeProject" value="{{t['@id']}}">{{t['title']}}</mat-option>
