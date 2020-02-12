@@ -22,7 +22,7 @@ export class AuthServiceService {
     body.append('_password', data._password);
     return this.http.post(url + '/api/login_check', body.toString(), {headers}).pipe(map((res: any) => {
       this.setToken(res.token);
-      this.router.navigate(['/listproject']);
+      this.router.navigate(['/dashboard']);
     }));
   }
 

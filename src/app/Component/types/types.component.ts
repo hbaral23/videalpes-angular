@@ -3,6 +3,7 @@ import {TypeService} from '../../../Service/type.service';
 import {MatDialog, MatTableDataSource} from '@angular/material';
 import {AddTypeModalComponent} from '../add-type-modal/add-type-modal.component';
 import {DeleteItemModalComponent} from '../delete-item-modal/delete-item-modal.component';
+import {EditTypeModalComponent} from '../edit-type-modal/edit-type-modal.component';
 
 @Component({
   selector: 'app-types',
@@ -14,6 +15,7 @@ export class TypesComponent implements OnInit {
   types;
   dataSource = new MatTableDataSource();
   displayedColumns = ['title', 'actions'];
+  loadingResults = true ;
 
   constructor(private typeService: TypeService, private cdr: ChangeDetectorRef, private dialog: MatDialog) { }
 
@@ -26,6 +28,7 @@ export class TypesComponent implements OnInit {
       this.types = res['hydra:member'];
       this.dataSource.data = this.types;
       this.cdr.detectChanges();
+      this.loadingResults = false;
     });
   }
 
@@ -47,6 +50,20 @@ export class TypesComponent implements OnInit {
 
   createType() {
     const dialogRef = this.dialog.open(AddTypeModalComponent);
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.refresh();
+      }
+    });
+  }
+
+  editType(type) {
+    const dialogRef = this.dialog.open(EditTypeModalComponent, {
+      data : {
+        type
+      }
+    });
 
     dialogRef.afterClosed().subscribe(res => {
       if (res) {

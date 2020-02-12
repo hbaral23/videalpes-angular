@@ -17,6 +17,8 @@ import {UserModule} from './Component/user/user.module';
 import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 import {TypesModule} from './Component/types/types.module';
 import {DeleteItemModalModule} from './Component/delete-item-modal/delete-item-modal.module';
+import {DashboardModule} from './Component/dashboard/dashboard.module';
+import {GenerateQRCodeModule} from "./Component/generate-qrcode/generate-qrcode.module";
 
 @NgModule({
   declarations: [
@@ -24,24 +26,26 @@ import {DeleteItemModalModule} from './Component/delete-item-modal/delete-item-m
     MenuComponent,
   ],
   imports: [
-      BrowserModule,
-      AppRoutingModule,
-      BrowserAnimationsModule,
-      ServiceModule,
-      ReactiveFormsModule,
-      AwardsModule,
-      LoginModule,
-      ProjectModule,
-      ListprojectModule,
-      VoteModule,
-      UserModule,
-      MatSidenavModule,
-      MatListModule,
-      MatToolbarModule,
-      MatIconModule,
-      MatButtonModule,
-      TypesModule,
-      DeleteItemModalModule
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ServiceModule,
+    ReactiveFormsModule,
+    AwardsModule,
+    LoginModule,
+    ProjectModule,
+    ListprojectModule,
+    VoteModule,
+    UserModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    TypesModule,
+    DeleteItemModalModule,
+    DashboardModule,
+    GenerateQRCodeModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

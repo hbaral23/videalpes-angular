@@ -1,20 +1,40 @@
 <div class="FormProject">
-  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-    <label>Titre du projet</label>
-    <input id="title" type="text" formControlName="title">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" ng-scrollbar>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label>Titre du projet</mat-label>
+      <input matInput id="title" type="text" formControlName="title" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="description">Description</mat-label>
+      <textarea matInput id="description" name="description" rows="5" cols="50"
+                formControlName="description" required></textarea>
+    </mat-form-field>
 
-    <label for="description">Description</label>
-    <textarea id="description" name="description" rows="5" cols="50" formControlName="description"></textarea>
-
-    <label for="persons">Personnes</label>
-    <textarea id="persons" name="persons" rows="5" cols="50" formControlName="persons"></textarea>
-
-    <label for="type">Type du projet :</label>
-    <select name="Type" id="type" formControlName="type">
-      <option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</option>
-    </select>
-
-    <button class="button" type="submit">Créer projet</button>
-
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="persons">Personnes</mat-label>
+      <textarea matInput id="persons" name="persons" rows="3" cols="50" formControlName="persons" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width:100%">
+      <mat-label for="type">Type du projet :</mat-label>
+      <mat-select name="Type" id="type" formControlName="type" required>
+        <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="inputBrowser">
+      <mat-form-field appearance="fill" style="width:90%">
+        <mat-label>Sélectionner une image</mat-label>
+        <input matInput id="filename" type="text" formControlName="file" readonly required>
+      </mat-form-field>
+      <div>
+        <button mat-mini-fab color="primary" class="fileBtn" (click)="openWindow()"><i class="material-icons">
+          attach_file
+        </i></button>
+      </div>
+    </div>
+    <div class="modalBtn">
+      <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer
+      </button>
+      <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
+    </div>
   </form>
 </div>
