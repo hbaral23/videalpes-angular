@@ -36,8 +36,13 @@ export class ListprojectComponent implements OnInit {
     this.projectService.delete(id).subscribe();
   }
 
-  openEditProjectModal(){
-    const dialogRef = this.dialog.open(EditProjectModalComponent);
+  openEditProjectModal(info){
+    const dialogRef = this.dialog.open(EditProjectModalComponent,{
+      data:{
+        projet: info,
+        type: this.type
+      }
+    });
   }
 
 }
