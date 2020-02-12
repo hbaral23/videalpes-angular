@@ -31,9 +31,11 @@ export class GenerateQRCodeComponent implements OnInit {
   pdf(){
     this.data = document.getElementById("exportthis").getElementsByTagName("img");
     for(let img of this.data){
+      // @ts-ignore
       this.src.push(img.src);
     }
     for(let src of this.src){
+      // @ts-ignore
       this.imageArray.push({image:src});
     }
     this.contentArray = {content:this.imageArray};
