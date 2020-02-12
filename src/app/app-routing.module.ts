@@ -14,19 +14,15 @@ import {DashboardComponent} from './Component/dashboard/dashboard.component';
 import {GenerateQRCodeComponent} from "./Component/generate-qrcode/generate-qrcode.component";
 
 const routes: Routes = [
-  {path: 'generateQRCode', component: GenerateQRCodeComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'types', component: TypesComponent},
+  {path: 'generateQRCode', component: GenerateQRCodeComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'types', component: TypesComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'user', component: UserComponent},
-  {path: 'project', component: ProjectComponent},
-  {path: 'award', component: AwardsComponent},
-  {path: 'vote', component: VoteComponent},
-  {path: 'listproject', component: ListprojectComponent},
-  {path: 'menu', component: MenuComponent},
-  {path: 'app', component: AppComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: '**', redirectTo: '/login'}
+  {path: 'award', component: AwardsComponent, canActivate: [AuthGuard]},
+  {path: 'listproject', component: ListprojectComponent, canActivate: [AuthGuard]},
+  {path: 'app', component: AppComponent, canActivate: [AuthGuard]},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '**', redirectTo: '/dashboard'}
 ];
 
 @NgModule({
