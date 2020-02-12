@@ -9,8 +9,10 @@ import { AuthGuard } from './guard/auth.guard';
 import { MenuComponent } from './Component/menu/menu.component';
 import { AppComponent } from './app.component';
 import { UserComponent } from './Component/user/user.component';
+import {TypesComponent} from './Component/types/types.component';
 
 const routes: Routes = [
+  {path: 'types', component: TypesComponent},
   {path: 'login', component: LoginComponent},
   {path: 'user', component: UserComponent},
   {path: 'project', component: ProjectComponent},
