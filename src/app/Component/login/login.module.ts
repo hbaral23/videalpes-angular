@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LoginComponent} from './login.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatSnackBarModule } from '@angular/material';
 import {ButtonModule, InputTextModule} from 'primeng';
 
 
@@ -15,7 +15,8 @@ import {ButtonModule, InputTextModule} from 'primeng';
     MatIconModule,
     ButtonModule,
     InputTextModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class LoginModule { }

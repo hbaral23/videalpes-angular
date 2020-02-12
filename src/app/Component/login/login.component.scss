@@ -47,14 +47,8 @@ padding-left: 4%;
   height: 2.4em;
 }
 
-.inputfield {
-    // display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-:focus {
-    //outline:0 !important;
+.plnputlogin :focus {
+    outline: none !important;
 }
 
 .btnaddon {
@@ -73,3 +67,11 @@ padding-left: 4%;
 .mat-icon {
     font-size: 20px;
   }
+
+.mat-snack-bar-container {
+    text-align: center;
+}
+
+.mat-simple-snackbar {
+    display: inline-block !important;
+}
