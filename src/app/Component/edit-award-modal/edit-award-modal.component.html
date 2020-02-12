@@ -1,0 +1,22 @@
+<h3 mat-dialog-title>Modifier un Prix </h3>
+
+<form class="example-container" [formGroup]="editAwardForm" (ngSubmit)="editDataAward(data.listAward.id)">
+  <div>
+    <mat-form-field appearance="fill" style="width:40em">
+      <mat-label>Nom du Prix</mat-label>
+      <input matInput maxlength="50" formControlName="name" type="text" value="{{data.listAward.name}}" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill" style="width:40em">
+      <mat-label>Type de projet associé : {{data.listAward.type['title']}}</mat-label>
+      <mat-select formControlName="type" value="{{data.listAward.type['title']}}" required>
+        <mat-option *ngFor="let t of data.typeProject" value="{{t['@id']}}">{{t['title']}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="modalBtn">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!editAwardForm.valid" class="saveBtn">Enregistrer</button>
+    <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
+  </div>
+</form>
