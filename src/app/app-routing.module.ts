@@ -11,8 +11,10 @@ import {AppComponent} from './app.component';
 import {UserComponent} from './Component/user/user.component';
 import {TypesComponent} from './Component/types/types.component';
 import {DashboardComponent} from './Component/dashboard/dashboard.component';
+import {GenerateQRCodeComponent} from "./Component/generate-qrcode/generate-qrcode.component";
 
 const routes: Routes = [
+  {path: 'generateQRCode', component: GenerateQRCodeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'types', component: TypesComponent},
   {path: 'login', component: LoginComponent},
