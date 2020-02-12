@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {TypeService} from "../../../Service/type.service";
 import {ProjetService} from "../../../Service/projet.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-project-modal',
@@ -17,22 +18,19 @@ export class AddProjectModalComponent implements OnInit {
     type: new FormControl('')
   });
 
-  constructor(private typeService: TypeService, private projectService: ProjetService) { }
+  constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private typeService: TypeService, private projectService: ProjetService) { }
 
   type: [] = [];
 
   ngOnInit() {
-    this.typeService.get().subscribe(data => {
-      this.type = data['hydra:member'];
-    });
+    this.type = this.data.type;
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.projectForm.value);
     this.projectService.create(this.projectForm.value).subscribe(data => {
-      console.log(data);
+      this.dialogRef.close(data);
     });
-    location.reload();
   }
 
 }
