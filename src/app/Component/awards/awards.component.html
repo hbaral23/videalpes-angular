@@ -1,40 +1,51 @@
 <div class="container">
   <div class="header">
     <h2>Gestion des prix</h2>
-    <button mat-raised-button color="primary" (click)="openModal()">
+    <button mat-raised-button class="addBtn" (click)="openAddModal()">
       <i class="material-icons">
         post_add
       </i>
       Ajouter
     </button>
   </div>
-  <table class="table">
-    <thead>
-    <tr>
-      <th class="numTh">No.</th>
-      <th class="awardTh">Désignation du prix</th>
-      <th class="projectTh">Projets associés</th>
-      <th class="actionTh">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of listAwardsInterface">
-      <td>{{item.id}}</td>
-      <td>{{item.name}}</td>
-      <!--      <td>{{item.type['title']}}</td>-->
-      <td>
-        <button mat-mini-fab class="editBtn" (click)="openModal()">
-          <i class="material-icons">
-            create
-          </i>
-        </button>
-        <button mat-mini-fab color="warn" class="deleteBtn" (click)="deleteAward(item.id)">
-          <i class="material-icons">
-            delete_forever
-          </i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="loader">
+    <mat-spinner class="spinner" *ngIf="loadingResults"></mat-spinner>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover  table-striped" *ngIf="!loadingResults">
+      <thead>
+      <tr>
+        <th class="numTh">No. <i class="material-icons">
+          unfold_more
+        </i></th>
+        <th class="awardTh">Désignation du prix <i class="material-icons">
+          unfold_more
+        </i></th>
+        <th class="projectTh">Projets associés<i class="material-icons">
+          unfold_more
+        </i></th>
+        <th class="actionTh">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of listAwardsInterface">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.type['title']}}</td>
+        <td class="actionTh">
+          <button mat-mini-fab class="editBtn" (click)="openEditModal(item)">
+            <i class="material-icons">
+              create
+            </i>
+          </button>
+          <button mat-mini-fab color="warn" class="deleteBtn" (click)="openDeleteModal(item)">
+            <i class="material-icons">
+              delete_forever
+            </i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

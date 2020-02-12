@@ -9,16 +9,42 @@
   margin-bottom: 2em;
 }
 
-.numTh {
-  width: 5em;
+.loader {
+  display: flex;
+  justify-content: center;
 }
 
-.projectTh {
-  width: 20em;
+table {
+  thead {
+    background-color: #383a3e;
+    color: white;
+  }
+  th{
+    vertical-align: middle;
+    i{
+      vertical-align: top;
+    }
+  }
+
+  .numTh {
+    width: 6em;
+  }
+
+  .projectTh {
+    width: 20em;
+  }
+
+  .actionTh {
+    width: 15em;
+    text-align: center;
+  }
 }
 
-.actionTh {
-  width: 15em;
+
+//buttons
+.addBtn {
+  background-color: #bcbec2;
+  color: white;
 }
 
 .editBtn {
