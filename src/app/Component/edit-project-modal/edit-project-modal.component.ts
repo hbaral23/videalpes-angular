@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-edit-project-modal',
@@ -8,7 +9,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class EditProjectModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   projectForm = new FormGroup({
     title : new FormControl(''),
