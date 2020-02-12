@@ -1,5 +1,6 @@
-import { Component, OnInit, HostBinding, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material';
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 
 export class MenuComponent implements OnInit {
+menuItems = [{title: "Projet", icon: "perm_media", url: "/listproject"}, {title: "Prix", icon: "stars", url: "/award"},{title: "Votes", icon: "how_to_vote", url: "/dashboard"}]
 
   constructor(media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');

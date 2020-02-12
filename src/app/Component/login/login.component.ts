@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatFormFieldControl } from '@angular/material/form-field';
-import { ButtonModule } from 'primeng/primeng';
 import { AuthServiceService } from 'src/Service/auth-service.service';
-import {NavigationEnd, Router} from '@angular/router';
-import {filter} from 'rxjs/operators';
+import { Router} from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -16,7 +14,7 @@ export class LoginComponent implements OnInit {
   public profileForm: FormGroup;
   hide = true;
 
-  constructor(private authService: AuthServiceService, private router: Router) {
+  constructor(private authService: AuthServiceService, private router: Router, private snackBar: MatSnackBar) {
     this.profileForm = new FormGroup({
       login: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -31,9 +29,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.profileForm.valid) {
-      this.authService.login({ _username: this.profileForm.value.login, _password: this.profileForm.value.password}).subscribe(
-        answer =>
-          console.log(answer)
+      this.authService.login({ _username: this.profileForm.value.login, _password: this.profileForm.value.password}).subscribe({
+      
+      error: (err) => {
+        this.snackBar.open('Identifiant ou mot de passe incorrecte' , null , {
+          duration: 3000
+        });
+      }
+    }
         );
     }
   }

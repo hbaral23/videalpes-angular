@@ -32,6 +32,7 @@ export class AddProjectModalComponent implements OnInit {
     this.projectService.create(this.projectForm.value).subscribe(data => {
       console.log(data);
     });
+    location.reload();
   }
 
 }

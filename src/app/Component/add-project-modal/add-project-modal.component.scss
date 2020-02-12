@@ -4,4 +4,11 @@
     flex-direction: column;
     width: 700px;
   }
+  .modalBtn{
+    text-align: end;
+    .saveBtn{
+      margin-right: 1em;
+    }
+  }
 }
+
