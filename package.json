@@ -26,6 +26,7 @@
     "@types/chart.js": "^2.9.13",
     "angular-bootstrap-md": "^8.9.0",
     "angular-material": "^1.1.21",
+    "angularx-qrcode": "^2.1.0",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.5.0",
