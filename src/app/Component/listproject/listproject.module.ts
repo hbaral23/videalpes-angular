@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {AddProjectModalComponent } from "../add-project-modal/add-project-modal.component";
 import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
+import {MatProgressSpinnerModule, MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [ListprojectComponent, AddProjectModalComponent, EditProjectModalComponent],
@@ -20,6 +21,8 @@ import {EditProjectModalComponent} from "../edit-project-modal/edit-project-moda
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
   ],
   entryComponents: [
     AddProjectModalComponent,

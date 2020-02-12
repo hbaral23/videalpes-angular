@@ -9,6 +9,45 @@
   margin-bottom: 2em;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  .mat-header-row {
+    background-color: #383a3e;
+  }
+  .mat-header-cell{
+    color: white;
+  }
+  th{
+    vertical-align: middle;
+    i{
+      vertical-align: top;
+    }
+  }
+
+  .numTh {
+    width: 6em;
+  }
+
+  .projectTh {
+    width: 20em;
+  }
+
+  .actionTh {
+    width: 15em;
+    text-align: center;
+  }
+}
+
+//buttons
+.addBtn {
+  background-color: #bcbec2;
+  color: white;
+}
+
 .editBtn {
   background-color: #383a3e;
 }
