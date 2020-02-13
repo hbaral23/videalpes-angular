@@ -10,10 +10,10 @@ import { AuthServiceService } from 'src/Service/auth-service.service';
 
 export class MenuComponent implements OnInit {
 menuItems = [
-  {title: "Votes", icon: "how_to_vote", url: "/dashboard"},
-  {title: "Projet", icon: "perm_media", url: "/listproject"},
-  {title: "Prix", icon: "stars", url: "/award"}, 
   {title: "Types", icon: "theaters", url: "/types"},
+  {title: "Prix", icon: "stars", url: "/award"},
+  {title: "Projets", icon: "perm_media", url: "/listproject"},
+  {title: "Votes", icon: "how_to_vote", url: "/dashboard"},
   {title: "QRCode", icon: "select_all", url: "/generateqrcode"}];
 
   constructor(media: MediaMatcher, private authService: AuthServiceService) {
