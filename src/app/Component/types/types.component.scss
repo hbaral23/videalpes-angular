@@ -14,6 +14,14 @@
   justify-content: center;
 }
 
+.addBtn {
+  background-image: radial-gradient(
+      #2F3C5F 25%,
+      #30353D
+  );
+  color:white;
+}
+
 table {
   .mat-header-row {
     background-color: #383a3e;
@@ -23,6 +31,10 @@ table {
   }
   th{
     vertical-align: middle;
+    background-image: radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
     i{
       vertical-align: top;
     }

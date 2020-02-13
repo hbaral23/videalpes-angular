@@ -9,6 +9,14 @@
   margin-bottom: 2em;
 }
 
+.addBtn {
+  background-image: radial-gradient(
+      #2F3C5F 25%,
+      #30353D
+  );
+  color:white;
+}
+
 .loader {
   display: flex;
   justify-content: center;
@@ -18,12 +26,19 @@ table {
   .mat-header-row {
     background-color: #383a3e;
   }
-  .mat-header-cell{
+
+  .mat-header-cell {
     color: white;
   }
-  th{
+
+  th {
     vertical-align: middle;
-    i{
+    background-image: radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
+
+    i {
       vertical-align: top;
     }
   }
