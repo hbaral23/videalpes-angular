@@ -17,7 +17,7 @@ export class AwardsComponent implements OnInit {
 
   listAwardsInterface: AwardInterface [] = [];
   typeOfProjects: [] = [];
-  loadingResults = false;
+  loadingResults = true;
   isawardsempty = false;
 
   constructor(private awardsService: PrizeService, private typeService: TypeService, public dialog: MatDialog, private cdr: ChangeDetectorRef) {
@@ -26,15 +26,13 @@ export class AwardsComponent implements OnInit {
   ngOnInit() {
     this.getListAward();
     this.getTypeOfProject();
-
   }
 
   getListAward() {
-    // this.loadingResults = true;
     this.awardsService.get().subscribe(data => {
       this.listAwardsInterface = data['hydra:member'];
       this.cdr.detectChanges();
-      // this.loadingResults = false;
+      this.loadingResults = false;
       if (this.listAwardsInterface.length == 0) {
         this.isawardsempty = true;
       } else {
@@ -69,18 +67,16 @@ export class AwardsComponent implements OnInit {
         typeProject: this.typeOfProjects
       }
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('modal edit');
-    //   if (result) {
-    //     this.getListAward();
-    //     location.reload();
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('modal edit');
+      if (result) {
+        this.getListAward();
+      }
+    });
   }
 
 
   openDeleteModal(award): void {
-    // this.loadingResults = false;
     const dialogRef = this.dialog.open(DeleteAwardModalComponent, {
       data: {
         awardToDelete: award,
@@ -89,7 +85,6 @@ export class AwardsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.awardsService.delete(award.id).subscribe(() => {
-          // location.reload();
           this.getListAward();
         });
       }

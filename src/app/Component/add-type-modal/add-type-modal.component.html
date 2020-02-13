@@ -4,12 +4,12 @@
   <div>
     <mat-form-field appearance="fill" style="width:40em">
       <mat-label >Nom du type</mat-label>
-      <input matInput #input maxlength="50" formControlName="title" type="text">
+      <input matInput #input maxlength="30" formControlName="title" type="text" required>
       <mat-error *ngIf="typeForm.controls.title.errors && typeForm.controls.title.touched">Ce champ est requis</mat-error>
     </mat-form-field>
   </div>
   <div class="modalBtn">
-    <button mat-raised-button color="primary" type="submit" class="saveBtn" (click)="save()">Enregistrer</button>
+    <button mat-raised-button color="primary" type="submit" class="saveBtn" [disabled]="!typeForm.valid" (click)="save()">Enregistrer</button>
     <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
   </div>
 </form>

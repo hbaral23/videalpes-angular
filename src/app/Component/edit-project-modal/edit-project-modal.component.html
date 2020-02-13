@@ -2,12 +2,12 @@
   <form [formGroup]="projectForm" (ngSubmit)="editProjet(data.projet.id)">
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
-      <input matInput id="title" type="text" formControlName="title" value="{{data.projet.title}}" required>
+      <input matInput id="title" type="text" formControlName="title" value="{{data.projet.title}}" maxlength="50" required>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="description">Description</mat-label>
       <textarea matInput id="description" name="description" rows="5" cols="50" formControlName="description"
-                [value]="data.projet.description" required></textarea>
+                [value]="data.projet.description" maxlength="500" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="persons">Personnes</mat-label>
