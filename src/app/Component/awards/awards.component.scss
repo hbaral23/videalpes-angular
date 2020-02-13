@@ -21,6 +21,11 @@ table {
   }
   th{
     vertical-align: middle;
+    background-image: radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
+
     i{
       vertical-align: top;
     }
