@@ -69,12 +69,13 @@ export class AwardsComponent implements OnInit {
         typeProject: this.typeOfProjects
       }
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('modal edit');
-      if (result) {
-        this.getListAward();
-      }
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('modal edit');
+    //   if (result) {
+    //     this.getListAward();
+    //     location.reload();
+    //   }
+    // });
   }
 
 
