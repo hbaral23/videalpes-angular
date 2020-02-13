@@ -16,12 +16,8 @@ export class DeleteAwardModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteAward(id) {
-    this.dialogRef.close('test');
-    this.awardsService.delete(id).subscribe(res => {
-      console.log(res);
-    });
-    location.reload();
+  deleteAward(b: boolean) {
+    this.dialogRef.close(b);
   }
 
 }

@@ -37,7 +37,4 @@ export class AddProjectModalComponent implements OnInit {
     });
   }
 
-  openWindow(){
-  }
-
 }

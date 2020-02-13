@@ -30,7 +30,7 @@ export class EditAwardModalComponent implements OnInit {
         console.log('data modifiées', res);
       }
     );
-    location.reload();
+    // location.reload();
   }
 
 }
