@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthServiceService, private router: Router, private snackBar: MatSnackBar) {
     this.profileForm = new FormGroup({
-      login: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.profileForm.valid) {
-      this.authService.login({ _username: this.profileForm.value.login, _password: this.profileForm.value.password}).subscribe({
+      this.authService.login({ _username: this.profileForm.value.email, _password: this.profileForm.value.password}).subscribe({
       
       error: (err) => {
         this.snackBar.open('Identifiant ou mot de passe incorrecte' , null , {
@@ -39,9 +39,5 @@ export class LoginComponent implements OnInit {
     }
         );
     }
-  }
-
-  clicktest(e) {
-    console.log('hide txt');
   }
 }

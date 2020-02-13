@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from "@angular/forms";
 import { VoteComponent } from '../vote/vote.component';
 import { VoteModule } from '../vote/vote.module';
-import { MatSelectModule, MatOptionModule } from '@angular/material';
+import { MatSelectModule, MatOptionModule, MatProgressSpinnerModule } from '@angular/material';
 import { ChartModule } from 'primeng';
 
 
@@ -19,6 +19,7 @@ import { ChartModule } from 'primeng';
     MatSelectModule,
     MatOptionModule,
     ChartModule,
+    MatProgressSpinnerModule
   ]
 })
 export class DashboardModule {

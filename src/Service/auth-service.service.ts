@@ -15,7 +15,6 @@ export class AuthServiceService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(data): Observable<any> {
-    console.log(data);
     const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
     const body = new URLSearchParams();
     body.append('_username', data._username);
