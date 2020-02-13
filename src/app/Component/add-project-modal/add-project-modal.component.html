@@ -20,17 +20,7 @@
         <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="inputBrowser">
-      <mat-form-field appearance="fill" style="width:90%">
-        <mat-label>Sélectionner une image</mat-label>
-        <input matInput id="filename" type="text" formControlName="file" readonly required>
-      </mat-form-field>
-      <div>
-        <button mat-mini-fab color="primary" class="fileBtn" (click)="openWindow()"><i class="material-icons">
-          attach_file
-        </i></button>
-      </div>
-    </div>
+    <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file" formControlName="file" required>
     <div class="modalBtn">
       <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer
       </button>
