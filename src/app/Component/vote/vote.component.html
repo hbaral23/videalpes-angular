@@ -7,4 +7,7 @@
   </mat-select>
 </mat-form-field>
 
-<p-chart type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>
+<div class="loader" *ngIf="isloadingdata">
+  <mat-spinner class="spinner" ></mat-spinner>
+</div>
+<p-chart *ngIf="!isloadingdata && !dataError" type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>

@@ -41,4 +41,8 @@ menuItems = [{title: "Projet", icon: "perm_media", url: "/project"}, {title: "Ut
         changePage(url) {
           this.router.navigate([url]);
         }
+
+        onActivate(event) {
+          window.scroll(0,0);
+      }
 }
