@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { MatButtonModule } from '@angular/material';
 import { AuthServiceService } from 'src/Service/auth-service.service';
 
 @Component({
@@ -10,7 +9,12 @@ import { AuthServiceService } from 'src/Service/auth-service.service';
 })
 
 export class MenuComponent implements OnInit {
-menuItems = [{title: "Votes", icon: "how_to_vote", url: "/dashboard"}, {title: "Projet", icon: "perm_media", url: "/listproject"}, {title: "Prix", icon: "stars", url: "/award"}, {title: "Types", icon: "theaters", url: "/types"}];
+menuItems = [
+  {title: "Votes", icon: "how_to_vote", url: "/dashboard"},
+  {title: "Projet", icon: "perm_media", url: "/listproject"},
+  {title: "Prix", icon: "stars", url: "/award"}, 
+  {title: "Types", icon: "theaters", url: "/types"},
+  {title: "QRCode", icon: "select_all", url: "/generateqrcode"}];
 
   constructor(media: MediaMatcher, private authService: AuthServiceService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');

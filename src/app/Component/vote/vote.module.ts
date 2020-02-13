@@ -7,12 +7,9 @@ import { MatSelectModule, MatOptionModule } from '@angular/material';
 
 
 @NgModule({
-  declarations: [VoteComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    MatSelectModule,
-    MatOptionModule,
-    ChartModule,
   ]
 })
 export class VoteModule { }

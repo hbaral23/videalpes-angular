@@ -8,11 +8,12 @@
       Ajouter
     </button>
   </div>
-  <div class="loader">
-    <mat-spinner class="spinner" *ngIf="loadingResults"></mat-spinner>
+  <div class="loader" *ngIf="loadingResults">
+    <mat-spinner class="spinner" ></mat-spinner>
   </div>
+  <h6  *ngIf="isawardsempty">Aucun prix n'est saisi</h6>
   <div class="table-responsive">
-    <table class="table table-hover  table-striped" *ngIf="!loadingResults">
+    <table class="table table-hover  table-striped" *ngIf="listAwardsInterface.length != 0">
       <thead>
       <tr>
         <th class="numTh">No. <i class="material-icons">

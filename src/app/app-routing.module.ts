@@ -14,7 +14,7 @@ import {DashboardComponent} from './Component/dashboard/dashboard.component';
 import {GenerateQRCodeComponent} from "./Component/generate-qrcode/generate-qrcode.component";
 
 const routes: Routes = [
-  {path: 'generateQRCode', component: GenerateQRCodeComponent, canActivate: [AuthGuard]},
+  {path: 'generateqrcode', component: GenerateQRCodeComponent, canActivate: [AuthGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'types', component: TypesComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
