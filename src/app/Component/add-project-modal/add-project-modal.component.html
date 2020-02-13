@@ -2,11 +2,11 @@
   <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" ng-scrollbar>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
-      <input maxlength="60" matInput id="title" type="text" formControlName="title" required>
+      <input maxlength="50" matInput id="title" type="text" formControlName="title" required>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="description">Description</mat-label>
-      <textarea maxlength="300" matInput id="description" name="description"
+      <textarea maxlength="500" matInput id="description" name="description"
                 formControlName="description" required></textarea>
     </mat-form-field>
 

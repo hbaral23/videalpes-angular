@@ -75,7 +75,6 @@ export class AwardsComponent implements OnInit {
     });
   }
 
-
   openDeleteModal(award): void {
     const dialogRef = this.dialog.open(DeleteAwardModalComponent, {
       data: {
