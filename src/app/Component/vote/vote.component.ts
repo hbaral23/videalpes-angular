@@ -7,6 +7,8 @@ import { MatSelectModule, MatOptionModule } from '@angular/material';
   styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit {
+  isloadingdata = false;
+  dataError = false;
   awards: string[] = ['Prix 1','Prix 2', 'Prix 3'];  
   data: any;
   films = ['FILM 1','FILM 2','FILM 3'];
@@ -18,12 +20,24 @@ export class VoteComponent implements OnInit {
     maintainAspectRatio: false
   };
 
-  constructor() {
-    this.LoadChartData();
+  constructor() {//private voteService: VoterService
+    this.getPrizeVote();
   }
 
   ngOnInit() {
   }
+
+getPrizeVote() {
+this.isloadingdata = true;
+this.dataError = false;
+// this.voteService.getVoteByPrize().suscribe{
+// this.LoadChartData();  
+// this.isloadingdata = false;
+this.LoadChartData();
+// error =>
+// this.dataError = true;
+// }
+}
 
 LoadChartData(){
   this.colors = [];
@@ -41,6 +55,7 @@ LoadChartData(){
             hoverBackgroundColor: this.darkcolors
         }]    
     };
+    this.isloadingdata = false;
 }
   
   getRdmColor () {
@@ -52,6 +67,6 @@ LoadChartData(){
   }
 
   awardselectedchanged() {
-    this.LoadChartData();
+    this.getPrizeVote();
   }
 }

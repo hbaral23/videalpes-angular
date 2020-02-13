@@ -25,11 +25,10 @@ export class AddAwardModalComponent implements OnInit {
 
   save() {
     console.log(this.createAwardForm.value);
-    this.dialogRef.close('données enregistrées');
     this.awardsService.create(this.createAwardForm.value).subscribe(res => {
-      console.log(res);
+      this.dialogRef.close(res);
     });
-    window.location.reload();
+    // window.location.reload();
   }
 
 }

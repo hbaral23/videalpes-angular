@@ -18,7 +18,7 @@ export class AddProjectModalComponent implements OnInit {
     description: new FormControl(''),
     persons: new FormControl(''),
     type: new FormControl(''),
-    file: new FormControl('')
+    file: new FormControl()
   });
 
   constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>,
@@ -37,7 +37,17 @@ export class AddProjectModalComponent implements OnInit {
     });
   }
 
-  openWindow(){
+  onFileSelected() {
+    const inputNode: any = document.querySelector('#file');
+
+    if (typeof (FileReader) !== 'undefined') {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        // this.srcResult = e.target.result;
+      };
+
+      reader.readAsArrayBuffer(inputNode.files[0]);
+    }
   }
 
 }
