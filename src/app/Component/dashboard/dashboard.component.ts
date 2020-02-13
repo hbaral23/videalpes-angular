@@ -10,6 +10,7 @@ export class DashboardComponent implements OnInit {
 
   launchVote;
   showVotes = false;
+  isVoteEnd = true;// false
 
   constructor(private launchService: LaunchService) {
   }
@@ -21,21 +22,18 @@ export class DashboardComponent implements OnInit {
   }
 
   launching() {
-    console.log('before', this.launchVote);
-    this.launchVote.authorization = true;
-    console.log('after', this.launchVote);
-
-
+    this.launchService.edit(1, {authorization: true}).subscribe(data => {
+      this.launchVote = data;
+    });
   }
 
   stopLaunching() {
-    console.log('stopbefore', this.launchVote);
-    this.launchVote.authorization = false;
-    console.log('stopafter', this.launchVote);
+    this.launchService.edit(1, {authorization: false}).subscribe(data => {
+      this.launchVote = data;
+    });
   }
 
   showResults() {
     this.showVotes = !this.showVotes;
-    console.log('resultats des votes');
   }
 }
