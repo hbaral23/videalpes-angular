@@ -24,13 +24,13 @@ export class EditAwardModalComponent implements OnInit {
   }
 
   editDataAward(id) {
-    this.dialogRef.close('données modifiées');
+    // this.dialogRef.close('données modifiées');
     console.log('idddd', this.editAwardForm.value);
     this.awardsService.edit(id, this.editAwardForm.value).subscribe(res => {
         console.log('data modifiées', res);
       }
     );
-    // location.reload();
+    location.reload();
   }
 
 }
