@@ -1,9 +1,14 @@
-<p>generate-qrcode works!</p>
+<form [formGroup]="qrcodeForm" (ngSubmit)="createQrcode()">
+  <mat-form-field appearance="fill" style="width:100%">
+    <mat-label>Nombre de QRCode à créer :</mat-label>
+    <input matInput id="title" type="number" formControlName="numberQrcode" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!qrcodeForm.valid">Créer QRCode</button>
+</form>
+<button mat-raised-button color="primary" class="createPDF" [disabled]="!QRCode.length != 0" (click)="pdf()">Générer PDF</button>
 <div id="exportthis">
   <div *ngFor="let qrcode of QRCode">
-      <qrcode [qrdata]="qrcode['uuid']" [width]='256' [errorCorrectionLevel]="'M'" elementType="img"></qrcode>
+      <qrcode [qrdata]="qrcode['uuid']" [width]='100' [errorCorrectionLevel]="'M'" elementType="img"></qrcode>
   </div>
 </div>
-
-
-<button (click)="pdf()">test pdf</button>
