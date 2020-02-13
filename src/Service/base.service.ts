@@ -3,9 +3,6 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class BaseService {
 
   protected url = environment.url;
