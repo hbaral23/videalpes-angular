@@ -19,25 +19,29 @@ export class VoteComponent implements OnInit {
   };
 
   constructor() {
-    for (let i = 0 ; i < this.films.length; i++) {      
-      this.colors[i] = this.getRdmColor();
-      this.darkcolors[i] = this.colors[i].substring(0,this.colors[i].length-1)+", 0.9)";
-    }
-    this.data = {
-      labels: this.films,
-      datasets: [
-          {
-              data: this.filmsvotes,
-              backgroundColor: this.colors,
-              hoverBackgroundColor: this.darkcolors
-          }]    
-      };
+    this.LoadChartData();
   }
 
   ngOnInit() {
   }
 
-
+LoadChartData(){
+  this.colors = [];
+  this.darkcolors = [];
+  for (let i = 0 ; i < this.films.length; i++) {      
+    this.colors[i] = this.getRdmColor();
+    this.darkcolors[i] = this.colors[i].substring(0,this.colors[i].length-1)+", 0.9)";
+  }
+  this.data = {
+    labels: this.films,
+    datasets: [
+        {
+            data: this.filmsvotes,
+            backgroundColor: this.colors,
+            hoverBackgroundColor: this.darkcolors
+        }]    
+    };
+}
   
   getRdmColor () {
     return "rgba(" + this.getRandomInt() + ", " + this.getRandomInt() + ", " + this.getRandomInt() + ")";
@@ -48,6 +52,6 @@ export class VoteComponent implements OnInit {
   }
 
   awardselectedchanged() {
-
+    this.LoadChartData();
   }
 }
