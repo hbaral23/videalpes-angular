@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PrizeService} from '../../../Service/prize.service';
 import {AwardInterface} from '../../Interface/award-interface';
 import {MatDialog} from '@angular/material/dialog';
@@ -17,25 +17,23 @@ export class AwardsComponent implements OnInit {
 
   listAwardsInterface: AwardInterface [] = [];
   typeOfProjects: [] = [];
-  loadingResults = false;
+  loadingResults = true;
   isawardsempty = false;
 
-  constructor(private awardsService: PrizeService, private typeService: TypeService, public dialog: MatDialog) {
+  constructor(private awardsService: PrizeService, private typeService: TypeService, public dialog: MatDialog, private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.getListAward();
     this.getTypeOfProject();
-
   }
 
   getListAward() {
-    this.loadingResults = true;
     this.awardsService.get().subscribe(data => {
       this.listAwardsInterface = data['hydra:member'];
-      console.log('on init', this.listAwardsInterface);
+      this.cdr.detectChanges();
       this.loadingResults = false;
-      if (this.listAwardsInterface.length == 0){
+      if (this.listAwardsInterface.length == 0) {
         this.isawardsempty = true;
       } else {
         this.isawardsempty = false;
@@ -55,40 +53,40 @@ export class AwardsComponent implements OnInit {
         typeProject: this.typeOfProjects
       }
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('afterclose modal', result);
-
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.getListAward();
+      }
     });
   }
 
   openEditModal(item): void {
-    console.log('editmodal', item);
     const dialogRef = this.dialog.open(EditAwardModalComponent, {
       data: {
         listAward: item,
         typeProject: this.typeOfProjects
       }
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('modal edit');
+      if (result) {
+        this.getListAward();
+      }
     });
   }
-
 
   openDeleteModal(award): void {
     const dialogRef = this.dialog.open(DeleteAwardModalComponent, {
       data: {
         awardToDelete: award,
-
       }
     });
-    console.log('item', award)
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('modal suppr', result);
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.awardsService.delete(award.id).subscribe(() => {
+          this.getListAward();
+        });
+      }
     });
   }
-
-
 }

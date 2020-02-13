@@ -2,17 +2,17 @@
   <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" ng-scrollbar>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
-      <input matInput id="title" type="text" formControlName="title" required>
+      <input maxlength="50" matInput id="title" type="text" formControlName="title" required>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="description">Description</mat-label>
-      <textarea matInput id="description" name="description" rows="5" cols="50"
+      <textarea maxlength="500" matInput id="description" name="description"
                 formControlName="description" required></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="persons">Personnes</mat-label>
-      <textarea matInput id="persons" name="persons" rows="3" cols="50" formControlName="persons" required></textarea>
+      <textarea matInput id="persons" name="persons" cols="50" formControlName="persons" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="type">Type du projet :</mat-label>
@@ -20,7 +20,8 @@
         <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file" formControlName="file" required>
+    <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file" formControlName="file"
+           required>
     <div class="modalBtn">
       <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer
       </button>

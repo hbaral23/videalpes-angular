@@ -21,16 +21,17 @@ export class EditAwardModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.editAwardForm = new FormGroup({
+      name: new FormControl(this.data.listAward.name),
+      type: new FormControl(this.data.typeProject.id)
+    });
   }
 
   editDataAward(id) {
-    this.dialogRef.close('données modifiées');
-    console.log('idddd', this.editAwardForm.value);
     this.awardsService.edit(id, this.editAwardForm.value).subscribe(res => {
-        console.log('data modifiées', res);
+        this.dialogRef.close(res);
       }
     );
-    location.reload();
   }
 
 }
