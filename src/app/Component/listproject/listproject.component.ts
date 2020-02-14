@@ -76,6 +76,13 @@ export class ListprojectComponent implements OnInit {
         type: this.type
       }
     });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.projectService.edit(info.id, res).subscribe(res => {
+          this.refresh();
+        });
+      }
+    });
   }
 
 }
