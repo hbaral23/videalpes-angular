@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {QrcodeService} from "../../../Service/qrcode.service";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -14,7 +14,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class GenerateQRCodeComponent implements OnInit {
 
-  constructor(private qrcode: QrcodeService) {
+  constructor(private qrcode: QrcodeService, private cdr: ChangeDetectorRef) {
   }
 
   qrcodeForm = new FormGroup({
@@ -23,24 +23,29 @@ export class GenerateQRCodeComponent implements OnInit {
 
   QRCode: [] = [];
   data: any;
-  src: [] = [];
+  src = [];
   contentArray: any;
-  imageArray: [] = [];
+  imageArray = [];
 
   ngOnInit() {
+    this.init();
+  }
+
+  init() {
     this.qrcode.get().subscribe(data => {
       this.QRCode = data['hydra:member'];
+      this.cdr.detectChanges();
     });
   }
 
   pdf() {
-    this.data = document.getElementById("exportthis").getElementsByTagName("img");
-    for (let img of this.data) {
-      // @ts-ignore
+    this.data = document.getElementById('exportthis').getElementsByTagName("img");
+    for (const img of this.data) {
+
       this.src.push(img.src);
     }
-    for (let src of this.src) {
-      // @ts-ignore
+    for (const src of this.src) {
+
       this.imageArray.push({image: src});
     }
     this.contentArray = {content: this.imageArray};
@@ -48,13 +53,11 @@ export class GenerateQRCodeComponent implements OnInit {
   }
 
   createQrcode() {
-    console.log(this.qrcodeForm.value['numberQrcode']);
-    this.qrcode.createByNumber(parseInt(this.qrcodeForm.value['numberQrcode'])).subscribe(res => {
+    console.log(this.qrcodeForm.value.numberQrcode);
+    this.qrcode.createByNumber(parseInt(this.qrcodeForm.value.numberQrcode)).subscribe(res => {
       console.log(res);
+      location.reload();
     });
-    setTimeout(function () {
-      location.reload()
-    }, 2000);
   }
 
 }

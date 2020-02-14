@@ -1,75 +1,119 @@
-::ng-deep .login-container {
-    background-image:
-    radial-gradient(
-        #2F3C5F 25%,
-        #30353D
-    );
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
-    background-size: cover;
+.Logomultimedialpes {
+  width: 30em;
+  position: absolute;
+  margin-top: -7em;
+  margin-left: 25em;
+}
+
+.centerForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  margin-top: 5em;
+
+  span {
+    background-color: #F8E212;
+    color: #2F3C5F;
+  }
+  .span1 {
+    border-top-left-radius: 25px;
   }
 
-.Logomultimedialpes {
-    display: block;
-    width: 40%;
-    max-width: 30%;
-    height: auto;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  .span2 {
+    border-bottom-right-radius: 25px;
+
+  }
 }
 
-::ng-deep .tablelog {
-    margin-top: 20% !important;
+.login-box {
+  height: 30em;
+  width: 40em;
+  margin: auto;
+  background-image: radial-gradient(
+      #2F3C5F 25%,
+      #30353D);
+  webkit-box-shadow: 15px 25px 33px 12px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: 15px 25px 33px 12px rgba(0, 0, 0, 0.51);
+  box-shadow: 15px 25px 33px 12px rgba(0, 0, 0, 0.51);
 }
 
-.ui-g div {
-    text-align: center;
-}
-
-.plnputlogin {
-padding-left: 4%;
-}
-
-.loginform {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 .ui-inputgroup {
-  height: 2.4em;
-}
+  width: 30em;
+  margin: auto;
 
-input {
-    outline: none;
-    box-shadow:none !important;
-    border:1px solid #ccc !important;
-}
+  .inputStyle {
+    border-bottom-right-radius: 25px;
 
-.btnaddon {
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    color: #555;
-    text-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
-}
-
-.mat-icon {
-    font-size: 20px;
   }
-
-.mat-snack-bar-container {
-    text-align: center;
 }
 
-.mat-simple-snackbar {
-    display: inline-block !important;
+.btnConnexion {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.btnConnect {
+  height: 2.5em;
+  width: 11em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  background-color: #2F3C5F !important;
+  border: 1px solid #F8E212 !important;
+  color: #F8E212 !important;
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 8px 45px -11px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 4px 8px 45px -11px rgba(255, 255, 255, 1);
+  box-shadow: 4px 8px 45px -11px rgba(255, 255, 255, 1);
+  //box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+#mySidenav a {
+  position: absolute;
+  left: -190px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  padding: 0.6em;
+  width: 250px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: #F8E212;
+}
+
+#blog {
+  top: 80px;
+  background-color: #EB830A;
+}
+
+#projects {
+  top: 140px;
+  background-color: #78C6CA;
+}
+
+#contact {
+  top: 200px;
+  background-color: #78B93B
 }

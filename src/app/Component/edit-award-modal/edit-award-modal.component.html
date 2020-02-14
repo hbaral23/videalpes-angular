@@ -1,6 +1,6 @@
 <h3 mat-dialog-title>Modifier un Prix </h3>
 
-<form class="example-container" [formGroup]="editAwardForm" (ngSubmit)="editDataAward(data.listAward.id)" style=" width: 35em">
+<form class="example-container" [formGroup]="editAwardForm" style=" width: 35em">
   <div>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Nom du Prix</mat-label>
@@ -16,7 +16,7 @@
     </mat-form-field>
   </div>
   <div class="modalBtn">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!editAwardForm.valid" class="saveBtn">Enregistrer</button>
+    <button mat-raised-button color="primary" (click)="editDataAward(data.listAward.id)" [disabled]="!editAwardForm.valid" class="saveBtn">Enregistrer</button>
     <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
   </div>
 </form>
