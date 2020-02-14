@@ -16,12 +16,8 @@
     <table class="table table-hover  table-striped" *ngIf="listAwardsInterface.length != 0">
       <thead>
       <tr>
-        <th class="awardTh">Désignation du prix <i class="material-icons">
-          unfold_more
-        </i></th>
-        <th class="projectTh">Projets associés<i class="material-icons">
-          unfold_more
-        </i></th>
+        <th class="awardTh">Désignation du prix <i class="pi pi-sort-down" (click)="sortBy('name')"></i></th>
+        <th class="projectTh">Type de projets associés<i class="pi pi-sort-down" (click)="sortBy('type')"></i></th>
         <th class="actionTh">Actions</th>
       </tr>
       </thead>

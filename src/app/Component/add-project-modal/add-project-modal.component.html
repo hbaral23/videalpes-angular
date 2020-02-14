@@ -1,5 +1,5 @@
 <div class="FormProject">
-  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" ng-scrollbar>
+  <form [formGroup]="projectForm" ng-scrollbar>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
       <input maxlength="50" matInput id="title" type="text" formControlName="title" required>
@@ -7,7 +7,7 @@
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="description">Description</mat-label>
       <textarea maxlength="500" matInput id="description" name="description"
-                formControlName="description" required></textarea>
+                formControlName="description"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill" style="width:100%">
@@ -23,7 +23,7 @@
     </mat-form-field>
     <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file">
     <div class="modalBtn">
-      <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!projectForm.valid">Créer
+      <button mat-raised-button color="primary" class="saveBtn" [disabled]="!projectForm.valid" (click)="save()">Créer
       </button>
       <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
     </div>

@@ -10,20 +10,22 @@ import {MatButtonModule} from "@angular/material/button";
 import {AddProjectModalComponent } from "../add-project-modal/add-project-modal.component";
 import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
 import {MatProgressSpinnerModule, MatTableModule} from '@angular/material';
+import {InputTextModule} from 'primeng';
 
 @NgModule({
   declarations: [ListprojectComponent, AddProjectModalComponent, EditProjectModalComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    MatTableModule,
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+        MatTableModule,
+        InputTextModule,
+    ],
   entryComponents: [
     AddProjectModalComponent,
     EditProjectModalComponent

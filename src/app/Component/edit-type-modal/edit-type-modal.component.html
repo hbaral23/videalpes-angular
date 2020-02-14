@@ -1,6 +1,6 @@
 <h3 mat-dialog-title>Modifier un Type </h3>
 
-<form class="example-container" [formGroup]="typeForm" (ngSubmit)="edit()">
+<form class="example-container" [formGroup]="typeForm">
   <div>
     <mat-form-field appearance="fill" style="width:40em">
       <mat-label>Nom du Prix</mat-label>
@@ -9,7 +9,7 @@
     </mat-form-field>
   </div>
   <div class="w-100 d-flex align-items-center justify-content-end">
-    <button mat-raised-button color="primary" type="submit" [disabled]="!typeForm.valid" class="saveBtn mr-2">Enregistrer</button>
+    <button mat-raised-button color="primary" (click)="edit()" [disabled]="!typeForm.valid" class="saveBtn mr-2">Enregistrer</button>
     <button mat-raised-button mat-dialog-close color="warn">Annuler</button>
   </div>
 </form>

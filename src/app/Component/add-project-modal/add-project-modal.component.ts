@@ -27,9 +27,10 @@ export class AddProjectModalComponent implements OnInit {
 
   ngOnInit() {
     this.type = this.data.type;
+    console.log(this.type);
   }
 
-  onSubmit() {
+  save() {
     console.log(this.projectForm.value);
     this.projectService.create(this.projectForm.value).subscribe(data => {
       this.dialogRef.close(data);
