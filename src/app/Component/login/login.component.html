@@ -1,36 +1,43 @@
-<div class="login-container" style="height: 100%">
+<div class="login-container" style="height: 40em">
   <div class="ui-g">
-      <div class="ui-g-12">
-          <img class="Logomultimedialpes" src="../../../assets/Resources/img/Logomultimedialpes.png">
-      </div>
+    <div class="ui-g-12">
+      <img class="Logomultimedialpes" src="../../../assets/Resources/img/Logomultimedialpes.png">
+    </div>
   </div>
 
-  <form [formGroup]="profileForm" class="example-form loginform" (ngSubmit)="onSubmit()">
-      <div class="ui-g">
-          <div class="ui-g-12">
-              <div class="ui-inputgroup">
-                  <span class="ui-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                  <input class="plnputlogin" value="" type="email" pInputText placeholder="Adresse mail" formControlName="email">
-              </div>
-          </div>
+  <form [formGroup]="profileForm" class="example-form login-box" (ngSubmit)="onSubmit()">
+    <div class="ui-g ui-fluid centerForm">
+      <div class="ui-g-12" style="margin-top:15em">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon span1"><i class="pi pi-envelope" style="line-height: 1.25;"></i></span>
+          <input class="inputStyle" type="email" pInputText placeholder="E-mail" value="" formControlName="email">
+        </div>
       </div>
 
-      <div class="ui-g">
-          <div class="ui-g-12">
-            <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                <input class="plnputlogin" [type]="hide ? 'password' : 'text'" value="" type="text" pInputText placeholder="Mot de passe" formControlName="password">
-                <button pButton class="btnaddon" type="button" (click)="hide = !hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </div>
-          </div>
+      <div class="ui-g-12">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon span1"><i class="pi pi-lock" style="line-height: 1.25;"></i></span>
+          <input  type="text" pInputText placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" value=""
+                 formControlName="password">
+          <span class="ui-inputgroup-addon span2" (click)="hide = !hide"> <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></span>
+        </div>
       </div>
-
-      <div class="ui-g">
-          <div class="ui-g-12">
-              <button mat-raised-button type="submit" color="medium" [disabled]="!profileForm.valid">Se connecter</button>
-          </div>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12 btnConnexion">
+        <button pButton type="submit" class="ui-button-info btnConnect" [disabled]="!profileForm.valid">Se connecter
+        </button>
       </div>
+    </div>
   </form>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="#" id="about">contact</a>
+    <a href="#" id="blog">A propos</a>
+    <a href="#" id="projects">autre</a>
+    <a href="#" id="contact">autre</a>
+  </div>
 </div>
+
+

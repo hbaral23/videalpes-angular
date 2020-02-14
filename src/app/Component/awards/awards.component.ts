@@ -16,6 +16,7 @@ import {DeleteAwardModalComponent} from "../delete-award-modal/delete-award-moda
 export class AwardsComponent implements OnInit {
 
   listAwardsInterface: AwardInterface [] = [];
+  copyListAwardInterface: AwardInterface [] = [];
   typeOfProjects: [] = [];
   loadingResults = true;
   isawardsempty = false;
@@ -88,5 +89,37 @@ export class AwardsComponent implements OnInit {
         });
       }
     });
+  }
+
+
+  sortBy(sort: string) {
+    if (sort === 'name') {
+      console.log('avant', this.listAwardsInterface);
+      this.listAwardsInterface.sort(this.sortByAwardName);
+      console.log('apres', this.listAwardsInterface);
+    }
+    if (sort === 'type') {
+      this.listAwardsInterface.sort(this.sortByType);
+    }
+  }
+
+  sortByAwardName(c1: AwardInterface, c2: AwardInterface) {
+    if (c1.name.toLocaleLowerCase() > c2.name.toLocaleLowerCase()) {
+      return 1;
+    } else if (c1.name.toLocaleLowerCase() === c2.name.toLocaleLowerCase()) {
+      return 0;
+    } else {
+      return -1;
+    }
+  }
+
+  sortByType(c1: AwardInterface, c2: AwardInterface) {
+    if (c1.type.title.toLocaleLowerCase() > c2.type.title.toLocaleLowerCase()) {
+      return 1;
+    } else if (c1.type.title.toLocaleLowerCase() === c2.type.title.toLocaleLowerCase()) {
+      return 0;
+    } else {
+      return -1;
+    }
   }
 }

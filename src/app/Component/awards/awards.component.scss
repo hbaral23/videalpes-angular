@@ -19,9 +19,15 @@ table {
     background-color: #383a3e;
     color: white;
   }
-  th{
+
+  th {
     vertical-align: middle;
-    i{
+    background-image: radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
+
+    i {
       vertical-align: top;
     }
   }
@@ -40,18 +46,17 @@ table {
   }
 }
 
-
 //buttons
 .addBtn {
-  //background-color: #bcbec2;
   background-image: radial-gradient(#2F3C5F 25%, #30353D);
   color: white;
 }
 
 .editBtn {
-  background-color: #383a3e;
+  background-color: #F8E212;
 }
 
 .deleteBtn {
   margin-left: 4em;
+  background-color: #EB830A;
 }

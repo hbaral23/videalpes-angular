@@ -14,26 +14,38 @@
   justify-content: center;
 }
 
+.addBtn {
+  background-image: radial-gradient(
+      #2F3C5F 25%,
+      #30353D
+  );
+  color: white;
+}
+
 table {
   .mat-header-row {
     background-color: #383a3e;
   }
-  .mat-header-cell{
+
+  .mat-header-cell {
     color: white;
   }
-  th{
+
+  th {
     vertical-align: middle;
-    i{
+    background-image: radial-gradient(
+        #2F3C5F 25%,
+        #30353D
+    );
+    padding: 0.8em;
+
+    i {
       vertical-align: top;
     }
   }
 
-  .numTh {
-    width: 6em;
-  }
-
-  .projectTh {
-    width: 20em;
+  td {
+    padding: 0.8em;
   }
 
   .actionTh {
@@ -43,15 +55,22 @@ table {
 }
 
 //buttons
+centerBtn {
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
 .addBtn {
   background-color: #bcbec2;
   color: white;
 }
 
 .editBtn {
-  background-color: #383a3e;
+  background-color: #F8E212;
 }
 
 .deleteBtn {
   margin-left: 4em;
+  background-color: #EB830A;
 }

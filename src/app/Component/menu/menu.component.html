@@ -1,12 +1,14 @@
 <mat-toolbar class="menutoolbar tbmenu">
   <img class="logoMMAlpes" src="../../../assets/Resources/img/Logomultimedialpes.png">
   &nbsp;
-  Multi Medi'Alpes
-  &nbsp;&nbsp;&nbsp;&nbsp;
-<div *ngFor="let item of menuItems">
-  &nbsp;
-<a mat-button routerLink="{{item.url}}"> <mat-icon>{{item.icon}}</mat-icon> &nbsp; {{item.title}}</a>
-</div>
-<span class="example-fill-remaining-space"></span>
-<a mat-button (click)="logout()" > <mat-icon>logout</mat-icon> &nbsp; Déconnexion</a>
+  Multi Médi'Alpes
+  &nbsp;&nbsp;
+  <div *ngFor="let item of menuItems">
+    &nbsp;
+    <a mat-button routerLink="{{item.url}}">
+      <mat-icon>{{item.icon}}</mat-icon> &nbsp; {{item.title}}</a>
+  </div>
+  <span class="example-fill-remaining-space"></span>
+  <a mat-button (click)="logout()">
+    <mat-icon>logout</mat-icon> &nbsp; Déconnexion</a>
 </mat-toolbar>
