@@ -37,7 +37,7 @@
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell class="actionTh" *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let element" class="centerBtn">
           <button mat-mini-fab class="editBtn" (click)="openEditProjectModal(element)">
             <i class="material-icons">
               edit
