@@ -63,7 +63,7 @@ export class ListprojectComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.projectService.delete(info.id).subscribe(() => {
-          location.reload();
+          this.refresh();
         });
       }
     });
@@ -74,6 +74,13 @@ export class ListprojectComponent implements OnInit {
       data:{
         projet: info,
         type: this.type
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.projectService.edit(info.id, res).subscribe(res => {
+          this.refresh();
+        });
       }
     });
   }

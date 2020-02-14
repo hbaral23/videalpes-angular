@@ -1,13 +1,11 @@
+<div class="loader">
 <mat-form-field class="full-width">
-  <mat-select placeholder="Prix">
-    <mat-option>--</mat-option>
-    <mat-option *ngFor="let award of awards" [value]="award" (click)="awardselectedchanged()">
-      {{award}}
+  <mat-select placeholder="Sélectionner un prix">
+    <mat-option *ngFor="let prize of prizes" [value]="prize.id" (click)="loadChartData(prize.id)">
+      {{prize.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-
-<div class="loader" *ngIf="isloadingdata">
-  <mat-spinner class="spinner" ></mat-spinner>
+  <mat-spinner  *ngIf="isloadingdata" class="spinner" ></mat-spinner>
 </div>
-<p-chart *ngIf="!isloadingdata && !dataError" type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>
+<p-chart *ngIf="!isloadingdata || !dataError" type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>

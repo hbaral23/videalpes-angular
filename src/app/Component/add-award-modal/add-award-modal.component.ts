@@ -27,8 +27,9 @@ export class AddAwardModalComponent implements OnInit {
     console.log(this.createAwardForm.value);
     this.awardsService.create(this.createAwardForm.value).subscribe(res => {
       this.dialogRef.close(res);
+      // window.location.reload();
     });
-    // window.location.reload();
+    // 
   }
 
 }

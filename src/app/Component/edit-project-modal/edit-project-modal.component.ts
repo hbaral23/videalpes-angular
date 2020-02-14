@@ -23,11 +23,8 @@ export class EditProjectModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  editProjet(id) {
-    this.dialogRef.close('données modifiées');
-    this.projetService.edit(id, this.projectForm.value).subscribe(res => {
-    });
-    location.reload();
+  editProjet() {
+    this.dialogRef.close(this.projectForm.value);
   }
 
 

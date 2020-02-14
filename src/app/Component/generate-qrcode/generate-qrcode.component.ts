@@ -56,7 +56,7 @@ export class GenerateQRCodeComponent implements OnInit {
     console.log(this.qrcodeForm.value.numberQrcode);
     this.qrcode.createByNumber(parseInt(this.qrcodeForm.value.numberQrcode)).subscribe(res => {
       console.log(res);
-      this.init();
+      location.reload();
     });
   }
 
