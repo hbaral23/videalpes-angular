@@ -3,6 +3,7 @@ import {TypeService} from '../../../Service/type.service';
 import {ProjetService} from '../../../Service/projet.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {FileService} from "../../../Service/file.service";
 
 @Component({
   selector: 'app-add-project-modal',
@@ -12,17 +13,20 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 export class AddProjectModalComponent implements OnInit {
 
   type: [] = [];
+  fileName: string ='';
 
   projectForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
     persons: new FormControl(''),
     type: new FormControl(''),
+    file: new FormControl(),
+    imgUrl: new FormControl('')
   });
 
   constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, private typeService: TypeService,
-              private projectService: ProjetService) {
+              private projectService: ProjetService, private fileService: FileService) {
   }
 
   ngOnInit() {
@@ -37,17 +41,12 @@ export class AddProjectModalComponent implements OnInit {
     });
   }
 
-  onFileSelected() {
-    const inputNode: any = document.querySelector('#file');
-
-    if (typeof (FileReader) !== 'undefined') {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        // this.srcResult = e.target.result;
-      };
-
-      reader.readAsArrayBuffer(inputNode.files[0]);
-    }
+  onFileSelected(files: any) {
+    console.log(files[0]);
+    let formData:FormData = new FormData();
+    formData.append("file", files[0],files[0].name);
+    this.fileService.upload(formData).subscribe();
+    this.projectForm.patchValue({imgUrl: files[0].name});
   }
 
 }

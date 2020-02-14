@@ -20,7 +20,7 @@
         <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file">
+    <input pInputText (change)="onFileSelected($event.target.files)" type="file" accept="image/*" id="file" formControlName="file">
     <div class="modalBtn">
       <button mat-raised-button color="primary" class="saveBtn" [disabled]="!projectForm.valid" (click)="save()">Créer
       </button>
