@@ -9,7 +9,7 @@ import { MatSelectModule, MatOptionModule } from '@angular/material';
 export class VoteComponent implements OnInit {
   isloadingdata = false;
   dataError = false;
-  awards: string[] = ['Prix 1','Prix 2', 'Prix 3'];  
+  awards: string[] = ['Prix 1','Prix 2', 'Prix 3'];
   data: any;
   films = ['FILM 1','FILM 2','FILM 3'];
   filmsvotes =  [25, 150, 100];
@@ -31,7 +31,7 @@ getPrizeVote() {
 this.isloadingdata = true;
 this.dataError = false;
 // this.voteService.getVoteByPrize().suscribe{
-// this.LoadChartData();  
+// this.LoadChartData();
 // this.isloadingdata = false;
 this.LoadChartData();
 // error =>
@@ -42,7 +42,7 @@ this.LoadChartData();
 LoadChartData(){
   this.colors = [];
   this.darkcolors = [];
-  for (let i = 0 ; i < this.films.length; i++) {      
+  for (let i = 0 ; i < this.films.length; i++) {
     this.colors[i] = this.getRdmColor();
     this.darkcolors[i] = this.colors[i].substring(0,this.colors[i].length-1)+", 0.9)";
   }
@@ -53,11 +53,11 @@ LoadChartData(){
             data: this.filmsvotes,
             backgroundColor: this.colors,
             hoverBackgroundColor: this.darkcolors
-        }]    
+        }]
     };
     this.isloadingdata = false;
 }
-  
+
   getRdmColor () {
     return "rgba(" + this.getRandomInt() + ", " + this.getRandomInt() + ", " + this.getRandomInt() + ")";
   }
