@@ -18,7 +18,6 @@ export class AddProjectModalComponent implements OnInit {
     description: new FormControl(''),
     persons: new FormControl(''),
     type: new FormControl(''),
-    file: new FormControl()
   });
 
   constructor(public dialogRef: MatDialogRef<AddProjectModalComponent>,

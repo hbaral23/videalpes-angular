@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {LaunchService} from '../../../Service/launch.service';
+import { MatDialog } from '@angular/material';
+import { DeleteItemModalComponent } from '../delete-item-modal/delete-item-modal.component';
+import { VoteService } from 'src/Service/vote.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,31 +14,43 @@ export class DashboardComponent implements OnInit {
   launchVote;
   showVotes = false;
 
-  constructor(private launchService: LaunchService) {
-  }
-
-  ngOnInit() {
+  constructor(private launchService: LaunchService, private dialog: MatDialog, private voteservice: VoteService) {   
     this.launchService.get().subscribe(data => {
       this.launchVote = data;
     });
   }
 
+  ngOnInit() {
+  }
+
   launching() {
-    console.log('before', this.launchVote);
-    this.launchVote.authorization = true;
-    console.log('after', this.launchVote);
-
-
+    this.launchService.edit(1, {authorization: true}).subscribe(data => {
+      this.launchVote = data;
+    });
+    document.getElementById("resultBtn").style.backgroundColor = "white";
   }
 
   stopLaunching() {
-    console.log('stopbefore', this.launchVote);
-    this.launchVote.authorization = false;
-    console.log('stopafter', this.launchVote);
-  }
+    this.launchService.edit(1, {authorization: false}).subscribe(data => {
+      this.launchVote = data;
+    });
+}
 
   showResults() {
     this.showVotes = !this.showVotes;
-    console.log('resultats des votes');
+  }
+
+  deleteAllVotes() {
+    const dialogRef = this.dialog.open(DeleteItemModalComponent,{
+      data: {
+        element: 'votes'
+      }});
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.voteservice.deleteAll().subscribe(() => {
+          location.reload();
+        });
+      }
+    });
   }
 }
