@@ -63,7 +63,7 @@ export class ListprojectComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.projectService.delete(info.id).subscribe(() => {
-          location.reload();
+          this.refresh();
         });
       }
     });

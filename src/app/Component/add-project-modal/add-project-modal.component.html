@@ -17,7 +17,6 @@
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="type">Type du projet :</mat-label>
       <mat-select name="Type" id="type" formControlName="type" required>
-        <mat-option value="{{type}}" *ngIf="type">test</mat-option>
         <mat-option value="{{typeInfo['@id']}}" *ngFor="let typeInfo of type">{{typeInfo['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
