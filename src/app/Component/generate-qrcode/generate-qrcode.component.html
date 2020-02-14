@@ -6,7 +6,7 @@
 
   <button mat-raised-button color="primary" class="saveBtn" type="submit" [disabled]="!qrcodeForm.valid">Créer QRCode</button>
 </form>
-<button mat-raised-button color="primary" class="createPDF" [disabled]="!QRCode.length != 0" (click)="pdf()">Générer PDF</button>
+<button mat-raised-button color="primary" class="createPDF" [disabled]="QRCode.length != 0" (click)="pdf()">Générer PDF</button>
 <div id="exportthis">
   <div *ngFor="let qrcode of QRCode">
       <qrcode [qrdata]="qrcode['uuid']" [width]='100' [errorCorrectionLevel]="'M'" elementType="img"></qrcode>
