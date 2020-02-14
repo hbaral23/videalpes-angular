@@ -18,10 +18,16 @@
   </button>
 
 
-  <button mat-button class="resultBtn" id="resultBtn" color="primary" (click)="showResults()" [disabled]="launchVote.authorization == false || !isVoteEnd">
+  <button mat-button class="resultBtn" id="resultBtn" color="primary" (click)="showResults()">
     <i class="material-icons">
       emoji_events
     </i>Afficher les résultats
+  </button>
+
+  <button mat-button class="delBtn" color="primary" (click)="deleteAllVotes()">
+    <i class="material-icons">
+      delete_forever
+    </i>Supprimer tout les votes
   </button>
 </span>
 </div>

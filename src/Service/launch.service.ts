@@ -9,6 +9,5 @@ export class LaunchService extends BaseService {
 
   constructor(http: HttpClient) {
     super('/api/launches', http);
-
   }
 }

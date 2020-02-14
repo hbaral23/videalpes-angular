@@ -2,11 +2,6 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router, Event } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 
-class sidebarItem {
-  title: string;
-  icon: string;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
