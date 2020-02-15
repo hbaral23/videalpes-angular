@@ -20,7 +20,7 @@
         <mat-option *ngFor="let data of data.type" value="{{data['@id']}}">{{data['title']}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <input pInputText (change)="onFileSelected()" type="file" accept="image/*" id="file" formControlName="file">
+    <input pInputText type="file" accept="image/*" id="file" formControlName="file">
 
     <div class="modalBtn">
       <button mat-raised-button color="primary" class="saveBtn" [disabled]="!projectForm.valid" (click)="editProjet()">Modifier</button>
