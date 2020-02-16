@@ -19,11 +19,12 @@ import {TypesModule} from './Component/types/types.module';
 import {DeleteItemModalModule} from './Component/delete-item-modal/delete-item-modal.module';
 import {DashboardModule} from './Component/dashboard/dashboard.module';
 import {GenerateQRCodeModule} from "./Component/generate-qrcode/generate-qrcode.module";
+import { ImgModalComponent } from './img-modal/img-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

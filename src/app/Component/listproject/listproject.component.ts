@@ -7,6 +7,7 @@ import {AddProjectModalComponent} from "../add-project-modal/add-project-modal.c
 import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
 import {DeleteItemModalComponent} from "../delete-item-modal/delete-item-modal.component";
 import {MatTableDataSource} from '@angular/material';
+import { ImgModalComponent } from 'src/app/img-modal/img-modal.component';
 
 @Component({
   selector: 'app-listproject',
@@ -86,4 +87,11 @@ export class ListprojectComponent implements OnInit {
     });
   }
 
+  openImg(imgititle) {
+    this.dialog.open(ImgModalComponent, {
+      data: {
+        title: imgititle,
+      }
+    });
+  }
 }
