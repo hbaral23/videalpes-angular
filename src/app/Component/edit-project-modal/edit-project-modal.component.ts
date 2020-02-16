@@ -24,7 +24,6 @@ selected;
 
 
   ngOnInit() {
-    console.log(this.data.projet)
   this.projectForm.patchValue({
     title: this.data.projet.title,
     description: this.data.projet.description,
@@ -33,7 +32,6 @@ selected;
     imgUrl: this.data.projet.imgUrl,
     file: this.data.projet.file
   });
-  console.log(this.data.type)
   const toSelect = this.data.type.find(t => t.id == this.projectForm.value.type.id);
   this.projectForm.get('type').setValue(toSelect);
 }
