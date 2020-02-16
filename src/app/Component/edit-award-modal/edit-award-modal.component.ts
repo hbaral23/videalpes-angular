@@ -21,13 +21,18 @@ export class EditAwardModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.editAwardForm = new FormGroup({
-      name: new FormControl(this.data.listAward.name),
-      type: new FormControl(this.data.typeProject.id)
+    this.editAwardForm.patchValue({
+      name: this.data.listAward.name,
+      type: this.data.listAward.type
     });
+    const toSelect = this.data.typeProject.find(t => t.id == this.editAwardForm.value.type.id);
+    this.editAwardForm.get('type').setValue(toSelect);
   }
 
   editDataAward(id) {
+    this.editAwardForm.patchValue({
+      type: '/api/types/'+this.editAwardForm.value.type.id
+    });
     this.awardsService.edit(id, this.editAwardForm.value).subscribe(res => {
         this.dialogRef.close(res);
       }

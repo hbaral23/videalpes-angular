@@ -14,7 +14,7 @@
       required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
-      <mat-label>Type du projet : </mat-label>
+      <mat-label>Type du projet </mat-label>
       <mat-select name="Type" id="type" formControlName="type" required>
         <mat-option *ngFor="let datas of data.type" [value]="datas">{{datas.title}}</mat-option>
       </mat-select>
