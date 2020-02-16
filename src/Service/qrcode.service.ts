@@ -25,4 +25,10 @@ export class QrcodeService extends BaseService{
 
     return this.http.post(this.url+this.entityUrl+'/create_by_number',{d:1},{params:params});
   }
+
+  deleteAll(): Observable<any>{
+    let params = new HttpParams();
+
+    return this.http.get(this.url + this.entityUrl + '/deleteAll',{});
+  }
 }
