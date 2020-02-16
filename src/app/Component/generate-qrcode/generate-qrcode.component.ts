@@ -3,6 +3,7 @@ import {QrcodeService} from "../../../Service/qrcode.service";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {FormControl, FormGroup} from "@angular/forms";
+import { Router } from '@angular/router';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -14,7 +15,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class GenerateQRCodeComponent implements OnInit {
 
-  constructor(private qrcode: QrcodeService, private cdr: ChangeDetectorRef) {
+  constructor(private qrcode: QrcodeService, private cdr: ChangeDetectorRef, private router: Router) {
   }
 
   qrcodeForm = new FormGroup({
@@ -54,14 +55,26 @@ export class GenerateQRCodeComponent implements OnInit {
 
   createQrcode() {
     console.log(this.qrcodeForm.value.numberQrcode);
-    this.qrcode.createByNumber(parseInt(this.qrcodeForm.value.numberQrcode)).subscribe(res => {
-      console.log(res);
-      location.reload();
+    this.qrcode.createByNumber(parseInt(this.qrcodeForm.value.numberQrcode)).subscribe((res) => {
+      this.reloadComponent();
+    },
+    (err) => {
+      this.reloadComponent();
     });
   }
 
+  reloadComponent() {
+this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+  this.router.navigate(['/generateqrcode']);
+});
+  }
   deleteALl(){
-    this.qrcode.deleteAll().subscribe();
+    this.qrcode.deleteAll().subscribe((res) => {
+      this.reloadComponent();
+    },
+    (err) => {
+      this.reloadComponent();
+    });
   }
 
 }
