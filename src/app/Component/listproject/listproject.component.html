@@ -15,6 +15,17 @@
 
   <div class="table-responsive" *ngIf="!loadingResults">
     <table mat-table [dataSource]="this.dataSource" class="table table-hover  table-striped">
+
+      <ng-container matColumnDef="imgUrl">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.imgUrl != null; then picture; else defaultpicture"></div>      
+          <ng-template #picture><img src="http://64.225.97.29:8000/images/{{element.imgUrl}}" class="poster"></ng-template>
+          <ng-template #defaultpicture><img src="../../../assets/Resources/img/Logomultimedialpes.png" class="poster"></ng-template>
+          
+      </td>
+      </ng-container>
+
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Titre<i class="material-icons">unfold_more</i></th>
         <td mat-cell *matCellDef="let element">{{element.title}}</td>

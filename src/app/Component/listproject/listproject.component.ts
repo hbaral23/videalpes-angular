@@ -20,7 +20,7 @@ export class ListprojectComponent implements OnInit {
   loadingResults = true;
 
   dataSource = new MatTableDataSource();
-  displayedColumns = ['title', 'description', 'persons', 'type', 'actions'];
+  displayedColumns = ['imgUrl','title', 'description', 'persons', 'type', 'actions'];
 
   constructor(private formBuilder: FormBuilder, private projectService: ProjetService, private typeService: TypeService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
@@ -34,6 +34,7 @@ export class ListprojectComponent implements OnInit {
   refresh() {
     this.projectService.get().subscribe(data => {
       this.project = data['hydra:member'];
+      console.log(this.project);
       this.dataSource.data = this.project;
       this.cdr.detectChanges();
       this.loadingResults = false;
