@@ -2,22 +2,22 @@
   <form [formGroup]="projectForm">
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label>Titre du projet</mat-label>
-      <input matInput id="title" type="text" formControlName="title" value="{{data.projet.title}}" maxlength="50" required>
+      <input matInput id="title" type="text" formControlName="title" maxlength="50" required>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="description">Description</mat-label>
-      <textarea matInput id="description" name="description" rows="5" cols="50" formControlName="description"
-                [value]="data.projet.description" maxlength="249" required></textarea>
+      <textarea matInput id="description" name="description" rows="5" cols="50" formControlName="description" maxlength="249" required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
       <mat-label for="persons">Personnes</mat-label>
       <textarea matInput id="persons" name="persons" rows="5" cols="50" formControlName="persons"
-                [value]="data.projet.persons" required></textarea>
+      required></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill" style="width:100%">
-      <mat-label for="type">Type du projet : {{data.projet.type.title}}</mat-label>
+      <mat-label>Type du projet :
+      </mat-label>
       <mat-select name="Type" id="type" formControlName="type" required>
-        <mat-option *ngFor="let data of data.type" value="{{data['@id']}}">{{data['title']}}</mat-option>
+        <mat-option *ngFor="let datas of data.type" [value]="datas">{{datas.title}}</mat-option>
       </mat-select>
     </mat-form-field>
     <input pInputText (change)="onFileSelected($event.target.files)" type="file" accept="image/*" id="file" formControlName="file">
