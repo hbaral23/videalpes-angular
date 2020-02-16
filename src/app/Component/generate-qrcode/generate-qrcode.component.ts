@@ -62,7 +62,6 @@ export class GenerateQRCodeComponent implements OnInit {
 
   deleteALl(){
     this.qrcode.deleteAll().subscribe();
-    location.reload();
   }
 
 }
