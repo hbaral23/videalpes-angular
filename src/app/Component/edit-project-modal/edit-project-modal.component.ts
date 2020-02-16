@@ -10,11 +10,7 @@ import {FileService} from "../../../Service/file.service";
   styleUrls: ['./edit-project-modal.component.scss']
 })
 export class EditProjectModalComponent implements OnInit {
-
-  constructor(private projetService: ProjetService, private dialogRef: MatDialogRef<EditProjectModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fileService: FileService) {
-  }
-
-  projectForm = new FormGroup({
+projectForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
     persons: new FormControl(''),
@@ -22,20 +18,39 @@ export class EditProjectModalComponent implements OnInit {
     imgUrl: new FormControl(''),
     file: new FormControl('')
   });
-
-  ngOnInit() {
+selected;
+  constructor(private projetService: ProjetService, private dialogRef: MatDialogRef<EditProjectModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fileService: FileService) {
   }
 
+
+  ngOnInit() {
+    console.log(this.data.projet)
+  this.projectForm.patchValue({
+    title: this.data.projet.title,
+    description: this.data.projet.description,
+    persons: this.data.projet.persons,
+    type: this.data.projet.type,
+    imgUrl: this.data.projet.imgUrl,
+    file: this.data.projet.file
+  });
+  console.log(this.data.type)
+  const toSelect = this.data.type.find(t => t.id == this.projectForm.value.type.id);
+  this.projectForm.get('type').setValue(toSelect);
+}
+
   editProjet() {
+     this.projectForm.patchValue({
+       type: '/api/types/'+this.projectForm.value.type.id
+     });
     this.dialogRef.close(this.projectForm.value);
   }
 
   onFileSelected(files: any) {
-    console.log(files[0]);
     let formData:FormData = new FormData();
     formData.append("file", files[0],files[0].name);
     this.fileService.upload(formData).subscribe();
-    this.projectForm.patchValue({imgUrl: files[0].name});
+    this.projectForm.patchValue({
+      imgUrl: files[0].name});
   }
 
 
