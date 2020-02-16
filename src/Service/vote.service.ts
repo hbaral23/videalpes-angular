@@ -20,6 +20,6 @@ export class VoteService extends BaseService{
   }
 
   deleteAll() {
-    return this.http.delete(this.url + this.entityUrl + '/deleteAll');
+    return this.http.get(this.url + this.entityUrl + '/deleteAll', {});
   }
 }

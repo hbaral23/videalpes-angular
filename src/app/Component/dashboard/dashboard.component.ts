@@ -3,6 +3,7 @@ import {LaunchService} from '../../../Service/launch.service';
 import { MatDialog } from '@angular/material';
 import { DeleteItemModalComponent } from '../delete-item-modal/delete-item-modal.component';
 import { VoteService } from 'src/Service/vote.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   launchVote;
   showVotes = false;
 
-  constructor(private launchService: LaunchService, private dialog: MatDialog, private voteservice: VoteService) {   
+  constructor(private launchService: LaunchService, private dialog: MatDialog, private voteservice: VoteService, private router: Router) {   
     this.launchService.get().subscribe(data => {
       this.launchVote = data;
     });
@@ -47,9 +48,7 @@ export class DashboardComponent implements OnInit {
       }});
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        this.voteservice.deleteAll().subscribe(() => {
-          location.reload();
-        });
+        this.voteservice.deleteAll().subscribe();
       }
     });
   }
