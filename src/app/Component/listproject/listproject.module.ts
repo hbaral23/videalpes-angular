@@ -11,9 +11,10 @@ import {AddProjectModalComponent } from "../add-project-modal/add-project-modal.
 import {EditProjectModalComponent} from "../edit-project-modal/edit-project-modal.component";
 import {MatProgressSpinnerModule, MatTableModule} from '@angular/material';
 import {InputTextModule} from 'primeng';
+import { ImgModalComponent } from 'src/app/img-modal/img-modal.component';
 
 @NgModule({
-  declarations: [ListprojectComponent, AddProjectModalComponent, EditProjectModalComponent],
+  declarations: [ListprojectComponent, AddProjectModalComponent, EditProjectModalComponent, ImgModalComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
@@ -28,7 +29,8 @@ import {InputTextModule} from 'primeng';
     ],
   entryComponents: [
     AddProjectModalComponent,
-    EditProjectModalComponent
-  ],
+    EditProjectModalComponent,
+    ImgModalComponent
+  ]
 })
 export class ListprojectModule { }
