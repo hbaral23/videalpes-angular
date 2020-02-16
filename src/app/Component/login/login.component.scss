@@ -90,7 +90,7 @@
   width: 250px;
   text-decoration: none;
   font-size: 20px;
-  color: white;
+  // color: white;
   border-radius: 0 5px 5px 0;
 }
 
@@ -101,21 +101,25 @@
 #about {
   top: 20px;
   background-color: #F8E212;
+  color: #F8E212;
 }
 
 #blog {
   top: 80px;
   background-color: #EB830A;
+  color: #EB830A;
 }
 
 #projects {
   top: 140px;
   background-color: #78C6CA;
+  color: #78C6CA;
 }
 
 #contact {
   top: 200px;
-  background-color: #78B93B
+  background-color: #78B93B;
+  color: #78B93B;
 }
 
 input {
