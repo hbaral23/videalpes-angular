@@ -8,4 +8,5 @@
 </mat-form-field>
   <mat-spinner  *ngIf="isloadingdata" class="spinner" ></mat-spinner>
 </div>
+<div *ngIf="winnerStr != undefined" class="winner"> Gagnant(s) : {{winnerStr}}</div>
 <p-chart *ngIf="!isloadingdata || !dataError" type="doughnut" width="400" height="400" [data]="data" [options]="options"></p-chart>

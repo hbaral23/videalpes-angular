@@ -42,13 +42,16 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteAllVotes() {
+    this.showVotes = false;
     const dialogRef = this.dialog.open(DeleteItemModalComponent,{
       data: {
         element: 'votes'
       }});
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        this.voteservice.deleteAll().subscribe();
+        this.voteservice.deleteAll().subscribe(res => {
+          this.showVotes = true;
+        });
       }
     });
   }
