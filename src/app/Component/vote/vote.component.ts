@@ -10,13 +10,14 @@ import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
   styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit {
+  winnerStr:string = undefined;
   selectedprize: any;
   isloadingdata = false;
   dataError = false;
   prizes: any[] = [];  
   data: any;
   films = [];
-  filmsvotes =  [];
+  filmsvotes: number[] = [];
   colors: string[] = [];
   darkcolors: string[] = [];
   options = {
@@ -75,6 +76,7 @@ loadChartData(prizeId) {
           }]    
       }
     });
+    this.winnerStr = this.getWinner();
   });
   this.isloadingdata = false;
   }
@@ -91,4 +93,34 @@ loadChartData(prizeId) {
     this.dataError = false;
     this.getPrizeVote();
   }
+
+  getWinner() {
+    let max = Math.max.apply(null, this.filmsvotes);
+let winner = []
+if (max != 0) { 
+  for (let i = 0; i < this.filmsvotes.length; i++) {
+    if (this.filmsvotes[i] == max)
+winner.push(i);
+  }
+if (winner.length == 1) {
+  return this.films[winner[0]];
+}
+else if (winner.length > 0)
+{
+  let winners = "";
+  for (let i = 0; i < winner.length; i++) {
+  if (i != winner.length-1 ) {
+    winners += this.films[winner[i]] + " | ";
+  } else {
+    winners += this.films[winner[i]];
+  }
+  }
+    
+  console.log(winners)
+  return winners;
+} else {
+  return "";
+}
+}
+   }
 }
